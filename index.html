@@ -1,0 +1,1708 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ORCHID BEAUTY SMART FINANCE | أوركيد بيوتي</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ============================================= */
+/* ============ المتغيرات والألوان ============ */
+/* ============================================= */
+:root {
+  --orchid-dark: #8B1E5C;
+  --orchid-primary: #C2185B;
+  --orchid-light: #F8BBD0;
+  --orchid-bg: #FFF5F8;
+  --gold: #D4AF37;
+  --gold-light: #F4E5B8;
+  --green: #2E7D32;
+  --green-light: #C8E6C9;
+  --red: #C62828;
+  --red-light: #FFCDD2;
+  --orange: #EF6C00;
+  --white: #FFFFFF;
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F5;
+  --gray-200: #EEEEEE;
+  --gray-300: #E0E0E0;
+  --gray-500: #9E9E9E;
+  --gray-700: #616161;
+  --gray-900: #212121;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(139,30,92,0.1);
+  --shadow-lg: 0 10px 30px rgba(139,30,92,0.15);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --transition: all 0.3s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Tajawal', sans-serif;
+  background: var(--orchid-bg);
+  color: var(--gray-900);
+  direction: rtl;
+  min-height: 100vh;
+}
+
+/* ============================================= */
+/* ============ شاشة الدخول ==================== */
+/* ============================================= */
+.login-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--orchid-dark) 0%, var(--orchid-primary) 100%);
+  padding: 20px;
+}
+.login-box {
+  background: white;
+  padding: 40px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 420px;
+}
+.login-logo { text-align: center; margin-bottom: 30px; }
+.login-logo i { font-size: 60px; color: var(--orchid-primary); margin-bottom: 15px; }
+.login-logo h1 { color: var(--orchid-dark); font-size: 28px; font-weight: 900; letter-spacing: 2px; }
+.login-logo p { color: var(--gray-700); font-size: 14px; margin-top: 5px; }
+.login-hint { text-align: center; margin-top: 15px; font-size: 12px; color: var(--gray-500); }
+
+/* ============================================= */
+/* ============ التطبيق ======================== */
+/* ============================================= */
+.app { display: flex; min-height: 100vh; }
+
+.sidebar {
+  width: 260px;
+  background: linear-gradient(180deg, var(--orchid-dark) 0%, #6A1747 100%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  z-index: 100;
+  transition: var(--transition);
+}
+.sidebar-header {
+  padding: 25px 20px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.sidebar-header i { font-size: 36px; color: var(--gold); margin-bottom: 8px; }
+.sidebar-header h2 { font-size: 18px; letter-spacing: 2px; color: var(--gold); font-weight: 900; }
+.sidebar-header small { color: var(--orchid-light); font-size: 11px; }
+.sidebar-nav { flex: 1; overflow-y: auto; padding: 15px 0; }
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  transition: var(--transition);
+  border-right: 3px solid transparent;
+  font-size: 14px;
+}
+.nav-link i { width: 25px; margin-left: 10px; color: var(--gold); }
+.nav-link:hover { background: rgba(255,255,255,0.08); color: white; }
+.nav-link.active { background: rgba(212,175,55,0.15); color: var(--gold); border-right-color: var(--gold); }
+.sidebar-footer { padding: 15px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+.main-content {
+  flex: 1;
+  margin-right: 260px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.topbar {
+  background: white;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topbar h1 { color: var(--orchid-dark); font-size: 20px; font-weight: 700; }
+.topbar-actions { display: flex; align-items: center; gap: 20px; }
+.date-display { color: var(--gray-700); font-size: 13px; }
+.user-info { display: flex; align-items: center; gap: 8px; color: var(--orchid-primary); }
+.user-info i { font-size: 24px; }
+.btn-icon { background: none; border: none; font-size: 20px; color: var(--orchid-dark); cursor: pointer; display: none; }
+.page-content { padding: 25px; flex: 1; }
+
+/* ============================================= */
+/* ============ الأزرار ======================== */
+/* ============================================= */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-primary { background: var(--orchid-primary); color: white; }
+.btn-primary:hover { background: var(--orchid-dark); transform: translateY(-1px); }
+.btn-success { background: var(--green); color: white; }
+.btn-success:hover { background: #1B5E20; }
+.btn-danger { background: var(--red); color: white; }
+.btn-warning { background: var(--orange); color: white; }
+.btn-gold { background: var(--gold); color: var(--gray-900); }
+.btn-outline { background: transparent; border: 1px solid rgba(255,255,255,0.3); color: white; width: 100%; }
+.btn-outline:hover { background: rgba(255,255,255,0.1); }
+.btn-sm { padding: 6px 12px; font-size: 12px; }
+.btn-block { width: 100%; justify-content: center; }
+.btn-icon-action {
+  width: 32px; height: 32px; padding: 0; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+
+/* ============================================= */
+/* ============ النماذج ======================== */
+/* ============================================= */
+.form-group { margin-bottom: 15px; }
+.form-group label { display: block; margin-bottom: 6px; font-size: 13px; color: var(--gray-700); font-weight: 500; }
+.form-control {
+  width: 100%; padding: 10px 14px; border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm); font-family: inherit; font-size: 14px;
+  transition: var(--transition); background: white;
+}
+.form-control:focus { outline: none; border-color: var(--orchid-primary); box-shadow: 0 0 0 3px rgba(194,24,91,0.1); }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+textarea.form-control { resize: vertical; min-height: 80px; }
+
+/* ============================================= */
+/* ============ البطاقات ======================= */
+/* ============================================= */
+.card { background: white; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm); margin-bottom: 20px; }
+.card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px solid var(--gray-200); }
+.card-title { color: var(--orchid-dark); font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 15px; margin-bottom: 25px; }
+.stat-card {
+  background: white; border-radius: var(--radius); padding: 20px; box-shadow: var(--shadow-sm);
+  position: relative; overflow: hidden; border-right: 4px solid var(--orchid-primary);
+  transition: var(--transition);
+}
+.stat-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.stat-card.gold { border-right-color: var(--gold); }
+.stat-card.green { border-right-color: var(--green); }
+.stat-card.red { border-right-color: var(--red); }
+.stat-card.orange { border-right-color: var(--orange); }
+.stat-label { color: var(--gray-700); font-size: 12px; margin-bottom: 8px; display: flex; align-items: center; gap: 6px; }
+.stat-value { font-size: 22px; font-weight: 900; color: var(--orchid-dark); margin-bottom: 5px; }
+.stat-change { font-size: 11px; }
+.stat-change.up { color: var(--green); }
+.stat-change.down { color: var(--red); }
+
+/* ============================================= */
+/* ============ الجداول ======================== */
+/* ============================================= */
+.table-container { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: white; }
+thead th { background: var(--orchid-dark); color: white; padding: 12px; text-align: right; font-size: 13px; font-weight: 500; }
+tbody td { padding: 12px; border-bottom: 1px solid var(--gray-200); font-size: 13px; }
+tbody tr:hover { background: var(--orchid-bg); }
+.badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 500; }
+.badge-success { background: var(--green-light); color: var(--green); }
+.badge-danger { background: var(--red-light); color: var(--red); }
+.badge-warning { background: var(--gold-light); color: var(--orange); }
+.badge-info { background: #E3F2FD; color: #1565C0; }
+
+/* ============================================= */
+/* ============ التنبيهات ====================== */
+/* ============================================= */
+.alerts-container { padding: 0 0 15px 0; }
+.alert {
+  padding: 12px 18px; border-radius: var(--radius-sm); margin-bottom: 10px;
+  display: flex; align-items: center; gap: 12px; font-size: 13px; animation: slideIn 0.3s ease;
+}
+@keyframes slideIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+.alert-danger { background: var(--red-light); color: var(--red); border-right: 4px solid var(--red); }
+.alert-warning { background: var(--gold-light); color: var(--orange); border-right: 4px solid var(--orange); }
+.alert-info { background: #E3F2FD; color: #1565C0; border-right: 4px solid #1565C0; }
+.alert-success { background: var(--green-light); color: var(--green); border-right: 4px solid var(--green); }
+
+/* ============================================= */
+/* ============ Modal ========================== */
+/* ============================================= */
+.modal { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+.modal.show { display: flex; }
+.modal-content { background: white; border-radius: var(--radius); max-width: 650px; width: 100%; max-height: 90vh; overflow-y: auto; animation: modalIn 0.3s ease; }
+@keyframes modalIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+.modal-header { padding: 20px; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; background: var(--orchid-bg); }
+.modal-header h3 { color: var(--orchid-dark); }
+.modal-close { background: none; border: none; font-size: 28px; cursor: pointer; color: var(--gray-500); }
+.modal-body { padding: 20px; }
+.modal-footer { padding: 15px 20px; border-top: 1px solid var(--gray-200); display: flex; justify-content: flex-start; gap: 10px; }
+
+/* ============================================= */
+/* ============ Toast ========================== */
+/* ============================================= */
+.toast {
+  position: fixed; bottom: 30px; left: 30px; background: var(--gray-900); color: white;
+  padding: 12px 20px; border-radius: var(--radius-sm); box-shadow: var(--shadow-lg);
+  opacity: 0; transform: translateY(20px); transition: var(--transition); z-index: 2000; font-size: 13px;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+.toast.success { background: var(--green); }
+.toast.error { background: var(--red); }
+.toast.warning { background: var(--orange); }
+
+/* ============================================= */
+/* ============ دورة رأس المال ================= */
+/* ============================================= */
+.capital-cycle {
+  display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+  gap: 10px; padding: 20px; background: linear-gradient(135deg, var(--orchid-bg), white);
+  border-radius: var(--radius); margin-bottom: 20px;
+}
+.cycle-step {
+  background: white; padding: 15px; border-radius: var(--radius-sm); text-align: center;
+  min-width: 110px; box-shadow: var(--shadow-sm); border-top: 3px solid var(--orchid-primary);
+}
+.cycle-step i { font-size: 24px; color: var(--orchid-primary); margin-bottom: 8px; display: block; }
+.cycle-step span { display: block; font-size: 12px; font-weight: 500; }
+.cycle-arrow { color: var(--gold); font-size: 20px; }
+
+/* ============================================= */
+/* ============ المحلل الذكي =================== */
+/* ============================================= */
+.ai-answer {
+  background: linear-gradient(135deg, #FFF5F8, #F8BBD0); border-radius: var(--radius);
+  padding: 15px; margin-bottom: 10px; border-right: 4px solid var(--orchid-primary);
+}
+.ai-answer h4 { color: var(--orchid-dark); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.ai-answer p { font-size: 13px; line-height: 1.7; color: var(--gray-900); }
+.ai-answer ul { margin: 8px 0; padding-right: 20px; }
+.ai-answer .metric { display: inline-block; background: white; padding: 3px 10px; border-radius: 20px; font-weight: 700; margin: 0 3px; }
+.ai-answer .metric.positive { color: var(--green); }
+.ai-answer .metric.negative { color: var(--red); }
+
+/* ============================================= */
+/* ============ الرسوم البيانية ================ */
+/* ============================================= */
+.bar-chart {
+  display: flex; align-items: flex-end; justify-content: space-around;
+  height: 200px; padding: 20px 10px; border-bottom: 2px solid var(--gray-200);
+}
+.bar {
+  flex: 1; margin: 0 5px; background: linear-gradient(180deg, var(--orchid-primary), var(--orchid-dark));
+  border-radius: 6px 6px 0 0; position: relative; transition: var(--transition); min-height: 10px;
+}
+.bar:hover { opacity: 0.85; }
+.bar-label { position: absolute; bottom: -25px; left: 0; right: 0; text-align: center; font-size: 11px; color: var(--gray-700); }
+.bar-value { position: absolute; top: -22px; left: 0; right: 0; text-align: center; font-size: 11px; font-weight: 700; color: var(--orchid-dark); }
+
+/* ============================================= */
+/* ============ التصنيف ABCD =================== */
+/* ============================================= */
+.classification-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; }
+.class-card { padding: 20px; border-radius: var(--radius); color: white; }
+.class-A { background: linear-gradient(135deg, var(--green), #1B5E20); }
+.class-B { background: linear-gradient(135deg, #1976D2, #0D47A1); }
+.class-C { background: linear-gradient(135deg, var(--orange), #BF360C); }
+.class-D { background: linear-gradient(135deg, var(--red), #B71C1C); }
+.class-card h3 { font-size: 32px; margin-bottom: 5px; }
+.class-card p { font-size: 13px; opacity: 0.9; }
+.class-card ul { margin-top: 10px; list-style: none; }
+.class-card ul li { padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.2); font-size: 12px; }
+
+/* ============================================= */
+/* ============ Responsive ===================== */
+/* ============================================= */
+@media (max-width: 992px) {
+  .sidebar { transform: translateX(100%); }
+  .sidebar.open { transform: translateX(0); }
+  .main-content { margin-right: 0; }
+  .btn-icon { display: block; }
+}
+@media (max-width: 768px) {
+  .form-row { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+  .stat-value { font-size: 18px; }
+  .page-content { padding: 15px; }
+  .topbar h1 { font-size: 16px; }
+  .date-display { display: none; }
+}
+
+/* ============================================= */
+/* ============ Utilities ====================== */
+/* ============================================= */
+.text-success { color: var(--green); }
+.text-danger { color: var(--red); }
+.text-warning { color: var(--orange); }
+.text-gold { color: var(--gold); }
+.text-muted { color: var(--gray-500); }
+.text-center { text-align: center; }
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.flex { display: flex; }
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.gap-10 { gap: 10px; }
+.empty-state { text-align: center; padding: 40px 20px; color: var(--gray-500); }
+.empty-state i { font-size: 50px; margin-bottom: 15px; color: var(--gray-300); display: block; }
+
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: var(--gray-100); }
+::-webkit-scrollbar-thumb { background: var(--orchid-light); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--orchid-primary); }
+
+@media print {
+  .sidebar, .topbar, .btn, .alerts-container { display: none !important; }
+  .main-content { margin: 0 !important; }
+  .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ شاشة تسجيل الدخول ============ -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <i class="fas fa-spa"></i>
+      <h1>ORCHID BEAUTY</h1>
+      <p>المدير المالي الذكي</p>
+    </div>
+    <form id="loginForm">
+      <div class="form-group">
+        <label>اسم المستخدم</label>
+        <input type="text" id="loginUser" required>
+      </div>
+      <div class="form-group">
+        <label>كلمة المرور</label>
+        <input type="password" id="loginPass" required>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block"><i class="fas fa-sign-in-alt"></i> دخول</button>
+      <p class="login-hint">المستخدم: <b>admin</b> | كلمة المرور: <b>orchid2026</b></p>
+    </form>
+  </div>
+</div>
+
+<!-- ============ التطبيق الرئيسي ============ -->
+<div id="app" class="app" style="display:none;">
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <i class="fas fa-spa"></i>
+      <h2>ORCHID BEAUTY</h2>
+      <small>المدير المالي الذكي</small>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" data-page="dashboard" class="nav-link active"><i class="fas fa-chart-line"></i><span>الرئيسية</span></a>
+      <a href="#" data-page="sales" class="nav-link"><i class="fas fa-cash-register"></i><span>المبيعات</span></a>
+      <a href="#" data-page="purchases" class="nav-link"><i class="fas fa-shopping-cart"></i><span>المشتريات</span></a>
+      <a href="#" data-page="products" class="nav-link"><i class="fas fa-boxes"></i><span>المنتجات</span></a>
+      <a href="#" data-page="inventory" class="nav-link"><i class="fas fa-warehouse"></i><span>المخزون</span></a>
+      <a href="#" data-page="customers" class="nav-link"><i class="fas fa-users"></i><span>العملاء</span></a>
+      <a href="#" data-page="debts" class="nav-link"><i class="fas fa-hand-holding-usd"></i><span>ديون العملاء</span></a>
+      <a href="#" data-page="suppliers" class="nav-link"><i class="fas fa-truck"></i><span>الموردون</span></a>
+      <a href="#" data-page="expenses" class="nav-link"><i class="fas fa-receipt"></i><span>المصروفات</span></a>
+      <a href="#" data-page="capital" class="nav-link"><i class="fas fa-coins"></i><span>رأس المال</span></a>
+      <a href="#" data-page="profits" class="nav-link"><i class="fas fa-chart-pie"></i><span>الأرباح</span></a>
+      <a href="#" data-page="cashflow" class="nav-link"><i class="fas fa-money-bill-wave"></i><span>التدفق النقدي</span></a>
+      <a href="#" data-page="ai" class="nav-link"><i class="fas fa-brain"></i><span>المحلل الذكي</span></a>
+      <a href="#" data-page="reports" class="nav-link"><i class="fas fa-file-invoice"></i><span>التقارير</span></a>
+      <a href="#" data-page="simulator" class="nav-link"><i class="fas fa-flask"></i><span>ماذا لو؟</span></a>
+      <a href="#" data-page="settings" class="nav-link"><i class="fas fa-cog"></i><span>الإعدادات</span></a>
+    </nav>
+    <div class="sidebar-footer">
+      <button id="logoutBtn" class="btn btn-outline"><i class="fas fa-sign-out-alt"></i> خروج</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <button id="menuToggle" class="btn-icon"><i class="fas fa-bars"></i></button>
+      <h1 id="pageTitle">لوحة التحكم</h1>
+      <div class="topbar-actions">
+        <span class="date-display" id="currentDate"></span>
+        <div class="user-info"><i class="fas fa-user-circle"></i><span id="currentUser">admin</span></div>
+      </div>
+    </header>
+    <div id="alertsContainer" class="alerts-container"></div>
+    <div id="pageContent" class="page-content"></div>
+  </main>
+</div>
+
+<!-- ============ Modal ============ -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3 id="modalTitle"></h3>
+      <button class="modal-close" onclick="Modal.close()">&times;</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+    <div class="modal-footer" id="modalFooter"></div>
+  </div>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script>
+/* =====================================================================
+   ██████  ██████       ██████  ██████
+   ██   ██ ██   ██      ██   ██ ██   ██
+   ██   ██ ██████  ████ ██   ██ ██████
+   ██   ██ ██   ██      ██   ██ ██   ██
+   ██████  ██████       ██████  ██████
+   ===================================================================== */
+const DB = {
+  KEY: 'orchid_beauty_db_v1',
+  data: null,
+  init() {
+    const saved = localStorage.getItem(this.KEY);
+    if (saved) { this.data = JSON.parse(saved); }
+    else { this.data = this.getDefaultData(); this.save(); }
+    return this.data;
+  },
+  getDefaultData() {
+    return {
+      meta: { version: '1.0.0', createdAt: new Date().toISOString(), lastModified: new Date().toISOString() },
+      auth: { users: [{ username: 'admin', password: 'orchid2026', role: 'admin', name: 'المدير' }], session: null },
+      settings: { storeName: 'أوركيد بيوتي', currency: 'ريال', taxRate: 0, lowStockAlert: 5, overdueDays: 30 },
+      capital: { initialVariable: 1000000, fixed: 800000, additionalCapital: [], withdrawals: [], reinvested: [] },
+      products: [],
+      categories: ['عطور', 'مكياج', 'عناية بالبشرة', 'عناية بالشعر', 'إكسسوارات', 'أخرى'],
+      sales: [],
+      purchases: [],
+      customers: [],
+      suppliers: [],
+      expenses: [],
+      expenseCategories: ['إيجار', 'كهرباء', 'مياه', 'نقل', 'تسويق', 'رواتب', 'صيانة', 'مصاريف تشغيلية', 'مصاريف أخرى'],
+      auditLog: [],
+      monthlySnapshots: []
+    };
+  },
+  save() {
+    this.data.meta.lastModified = new Date().toISOString();
+    localStorage.setItem(this.KEY, JSON.stringify(this.data));
+  },
+  reset() {
+    if (confirm('⚠️ هل أنت متأكد من حذف جميع البيانات؟ لا يمكن التراجع!')) {
+      localStorage.removeItem(this.KEY); location.reload();
+    }
+  },
+  log(action, details, user) {
+    user = user || 'admin';
+    this.data.auditLog.unshift({ id: this.uid(), timestamp: new Date().toISOString(), user, action, details });
+    if (this.data.auditLog.length > 500) this.data.auditLog.pop();
+    this.save();
+  },
+  uid() { return Date.now().toString(36) + Math.random().toString(36).substr(2, 5); },
+  exportData() { return JSON.stringify(this.data, null, 2); },
+  importData(jsonString) {
+    try {
+      const imported = JSON.parse(jsonString);
+      if (!imported.meta || !imported.products) throw new Error('ملف غير صالح');
+      this.data = imported; this.save(); return true;
+    } catch (e) { console.error(e); return false; }
+  }
+};
+DB.init();
+
+/* =====================================================================
+   ██    ██ ████████ ██ ██      ███████
+   ██    ██    ██    ██ ██      ██
+   ██    ██    ██    ██ ██      ███████
+   ██    ██    ██    ██ ██           ██
+    ██████     ██    ██ ███████ ███████
+   ===================================================================== */
+const Utils = {
+  formatMoney(n) {
+    if (n === null || n === undefined || isNaN(n)) n = 0;
+    return Number(n).toLocaleString('en-US', { minimumFractionDigits: 0, maximumFractionDigits: 2 }) + ' ريال';
+  },
+  formatNumber(n) { if (n === null || n === undefined || isNaN(n)) n = 0; return Number(n).toLocaleString('en-US'); },
+  formatPercent(n) { if (n === null || n === undefined || isNaN(n)) n = 0; return Number(n).toFixed(2) + '%'; },
+  formatDate(iso) { if (!iso) return '-'; return new Date(iso).toLocaleDateString('ar-SA', { year: 'numeric', month: 'short', day: 'numeric' }); },
+  formatDateTime(iso) { if (!iso) return '-'; const d = new Date(iso); return d.toLocaleDateString('ar-SA') + ' ' + d.toLocaleTimeString('ar-SA', { hour: '2-digit', minute: '2-digit' }); },
+  today() { return new Date().toISOString().split('T')[0]; },
+  daysBetween(d1, d2) { return Math.floor((new Date(d2).getTime() - new Date(d1).getTime()) / 86400000); },
+  escapeHtml(str) { if (str === null || str === undefined) return ''; return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); },
+  toast(msg, type) {
+    type = type || 'success';
+    const t = document.getElementById('toast');
+    t.textContent = msg; t.className = 'toast show ' + type;
+    setTimeout(() => t.className = 'toast', 3000);
+  },
+  weightedAverageCost(oldQty, oldCost, newQty, newCost) {
+    const total = oldQty + newQty;
+    return total === 0 ? 0 : ((oldQty * oldCost) + (newQty * newCost)) / total;
+  },
+  calc: {
+    grossProfit(s, c) { return s - c; },
+    grossMargin(s, c) { return s > 0 ? ((s - c) / s) * 100 : 0; },
+    netProfit(gp, e) { return gp - e; },
+    netMargin(np, s) { return s > 0 ? (np / s) * 100 : 0; },
+    inventoryTurnover(cogs, avgInv) { return avgInv > 0 ? cogs / avgInv : 0; },
+    capitalTurnover(s, c) { return c > 0 ? s / c : 0; },
+    returnOnCapital(np, c) { return c > 0 ? (np / c) * 100 : 0; },
+    receivablesRatio(r, s) { return s > 0 ? (r / s) * 100 : 0; }
+  }
+};
+
+const Modal = {
+  open(title, bodyHtml, footerHtml) {
+    footerHtml = footerHtml || '';
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalBody').innerHTML = bodyHtml;
+    document.getElementById('modalFooter').innerHTML = footerHtml;
+    document.getElementById('modal').classList.add('show');
+  },
+  close() { document.getElementById('modal').classList.remove('show'); }
+};
+document.addEventListener('click', e => { if (e.target.id === 'modal') Modal.close(); });
+
+/* =====================================================================
+    █████  ██    ██ ████████ ██   ██
+   ██   ██ ██    ██    ██    ██   ██
+   ███████ ██    ██    ██    ███████
+   ██   ██ ██    ██    ██    ██   ██
+   ██   ██  ██████     ██    ██   ██
+   ===================================================================== */
+const Auth = {
+  init() {
+    const session = DB.data.auth.session;
+    if (session) this.showApp(session); else this.showLogin();
+    document.getElementById('loginForm').addEventListener('submit', e => { e.preventDefault(); this.login(); });
+    document.getElementById('logoutBtn').addEventListener('click', () => this.logout());
+  },
+  login() {
+    const user = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value;
+    const found = DB.data.auth.users.find(u => u.username === user && u.password === pass);
+    if (found) {
+      DB.data.auth.session = { username: found.username, role: found.role, name: found.name };
+      DB.save(); this.showApp(DB.data.auth.session); Utils.toast('مرحباً ' + found.name, 'success');
+    } else { Utils.toast('بيانات الدخول غير صحيحة', 'error'); }
+  },
+  logout() { if (!confirm('هل تريد تسجيل الخروج؟')) return; DB.data.auth.session = null; DB.save(); location.reload(); },
+  showLogin() { document.getElementById('loginScreen').style.display = 'flex'; document.getElementById('app').style.display = 'none'; },
+  showApp(session) { document.getElementById('loginScreen').style.display = 'none'; document.getElementById('app').style.display = 'flex'; document.getElementById('currentUser').textContent = session.name; }
+};
+
+/* =====================================================================
+   ██████  ██████   ██████  ██████  ██ ████████ ███████ ███████
+   ██   ██ ██   ██ ██    ██ ██   ██ ██    ██    ██      ██
+   ██████  ██████  ██    ██ ██   ██ ██    ██    █████   ███████
+   ██      ██   ██ ██    ██ ██   ██ ██    ██    ██           ██
+   ██      ██   ██  ██████  ██████  ██    ██    ███████ ███████
+   ===================================================================== */
+const Products = {
+  getAll() { return DB.data.products; },
+  getById(id) { return DB.data.products.find(p => p.id === id); },
+  add(data) {
+    const p = {
+      id: DB.uid(), name: data.name, category: data.category,
+      quantity: Number(data.quantity) || 0, purchasePrice: Number(data.purchasePrice) || 0,
+      avgCost: Number(data.purchasePrice) || 0, sellingPrice: Number(data.sellingPrice) || 0,
+      minStock: Number(data.minStock) || 5, supplier: data.supplier || '',
+      createdAt: new Date().toISOString(), lastPurchaseDate: null, lastSaleDate: null,
+      totalSold: 0, totalRevenue: 0, totalCogs: 0
+    };
+    DB.data.products.push(p); DB.log('إضافة منتج', { productId: p.id, name: p.name }); DB.save(); return p;
+  },
+  update(id, data) {
+    const p = this.getById(id); if (!p) return;
+    Object.assign(p, { name: data.name, category: data.category, quantity: Number(data.quantity), purchasePrice: Number(data.purchasePrice), sellingPrice: Number(data.sellingPrice), minStock: Number(data.minStock), supplier: data.supplier });
+    DB.log('تعديل منتج', { productId: id, name: p.name }); DB.save();
+  },
+  delete(id) {
+    const p = this.getById(id); if (!p) return;
+    if (!confirm('حذف المنتج "' + p.name + '"؟')) return;
+    DB.data.products = DB.data.products.filter(x => x.id !== id);
+    DB.log('حذف منتج', { productId: id, name: p.name }); DB.save();
+  },
+  addStock(productId, qty, purchasePrice) {
+    const p = this.getById(productId); if (!p) return;
+    p.avgCost = Utils.weightedAverageCost(p.quantity, p.avgCost, qty, purchasePrice);
+    p.quantity += qty; p.purchasePrice = purchasePrice; p.lastPurchaseDate = new Date().toISOString();
+    DB.log('إضافة مخزون', { productId, qty, purchasePrice }); DB.save();
+  },
+  removeStock(productId, qty) {
+    const p = this.getById(productId);
+    if (!p) return { ok: false, msg: 'المنتج غير موجود' };
+    if (p.quantity < qty) return { ok: false, msg: 'الكمية المتاحة: ' + p.quantity };
+    p.quantity -= qty; p.lastSaleDate = new Date().toISOString();
+    DB.log('خصم مخزون', { productId, qty }); DB.save();
+    return { ok: true, avgCost: p.avgCost };
+  },
+  getSlowMoving(days) {
+    days = days || 60; const now = new Date();
+    return this.getAll().filter(p => {
+      if (p.quantity === 0) return false;
+      const last = p.lastSaleDate || p.lastPurchaseDate || p.createdAt;
+      return Utils.daysBetween(last, now) > days;
+    });
+  },
+  getTopSelling(limit) { limit = limit || 10; return [...this.getAll()].sort((a, b) => b.totalSold - a.totalSold).slice(0, limit); },
+  getInventoryValue() { return this.getAll().reduce((s, p) => s + (p.quantity * p.avgCost), 0); },
+  getInventorySellingValue() { return this.getAll().reduce((s, p) => s + (p.quantity * p.sellingPrice), 0); },
+  classify() {
+    const products = this.getAll();
+    if (products.length === 0) return { A: [], B: [], C: [], D: [] };
+    const scored = products.map(p => {
+      const days = p.lastSaleDate ? Utils.daysBetween(p.lastSaleDate, new Date()) : Utils.daysBetween(p.createdAt, new Date());
+      const margin = p.sellingPrice > 0 ? ((p.sellingPrice - p.avgCost) / p.sellingPrice) * 100 : 0;
+      const totalDays = Math.max(1, Utils.daysBetween(p.createdAt, new Date()) / 30);
+      const velocity = p.totalSold > 0 ? p.totalSold / totalDays : 0;
+      const capitalFrozen = p.quantity * p.avgCost;
+      let score = 0;
+      score += Math.min(p.totalSold * 2, 40);
+      score += Math.min(margin * 0.3, 20);
+      score += Math.min(velocity * 5, 20);
+      score += days < 30 ? 20 : days < 60 ? 10 : 0;
+      if (capitalFrozen > 100000) score -= 10;
+      return { product: p, score, velocity, margin, daysInStock: days, capitalFrozen };
+    });
+    const sorted = scored.sort((a, b) => b.score - a.score);
+    const result = { A: [], B: [], C: [], D: [] };
+    sorted.forEach(item => {
+      if (item.score >= 70) result.A.push(item);
+      else if (item.score >= 45) result.B.push(item);
+      else if (item.score >= 20) result.C.push(item);
+      else result.D.push(item);
+    });
+    return result;
+  }
+};
+
+/* =====================================================================
+   ███████  █████  ██      ███████ ███████
+   ██      ██   ██ ██      ██      ██
+   ███████ ███████ ██      █████   ███████
+        ██ ██   ██ ██      ██           ██
+   ███████ ██   ██ ███████ ███████ ███████
+   ===================================================================== */
+const Sales = {
+  getAll() { return DB.data.sales; },
+  create(invoice) {
+    const items = invoice.items.map(it => {
+      const p = Products.getById(it.productId);
+      if (!p) throw new Error('منتج غير موجود');
+      const lineTotal = (it.qty * it.price) - (it.discount || 0);
+      return { productId: it.productId, productName: p.name, qty: it.qty, price: it.price, discount: it.discount || 0, avgCost: p.avgCost, cogs: p.avgCost * it.qty, lineTotal };
+    });
+    const subtotal = items.reduce((s, i) => s + i.lineTotal, 0);
+    const totalCogs = items.reduce((s, i) => s + i.cogs, 0);
+    const paid = Number(invoice.paid) || 0;
+    const remaining = subtotal - paid;
+    const sale = {
+      id: DB.uid(), date: new Date().toISOString(),
+      customerId: invoice.customerId || null,
+      customerName: invoice.customerId ? (Customers.getById(invoice.customerId) || {}).name || 'عميل' : 'عميل نقدي',
+      items, subtotal, totalCogs, grossProfit: subtotal - totalCogs,
+      paid, remaining, paymentMethod: invoice.paymentMethod || 'نقد',
+      notes: invoice.notes || '', status: remaining > 0 ? 'آجل' : 'مدفوع'
+    };
+    for (const it of items) {
+      const res = Products.removeStock(it.productId, it.qty);
+      if (!res.ok) throw new Error(it.productName + ': ' + res.msg);
+      const p = Products.getById(it.productId);
+      p.totalSold += it.qty; p.totalRevenue += it.lineTotal; p.totalCogs += it.cogs;
+    }
+    if (remaining > 0 && invoice.customerId) Customers.addDebt(invoice.customerId, remaining, sale.id, sale.date);
+    DB.data.sales.unshift(sale);
+    DB.log('عملية بيع', { saleId: sale.id, total: subtotal, paid, remaining }); DB.save();
+    return sale;
+  },
+  getTotalSales() { return this.getAll().reduce((s, x) => s + x.subtotal, 0); },
+  getTotalCogs() { return this.getAll().reduce((s, x) => s + x.totalCogs, 0); },
+  getTotalGrossProfit() { return this.getAll().reduce((s, x) => s + x.grossProfit, 0); },
+  getMonthSales(year, month) {
+    return this.getAll().filter(s => { const d = new Date(s.date); return d.getFullYear() === year && d.getMonth() === month; });
+  }
+};
+
+/* =====================================================================
+   ██████  ██    ██  ██████ ████████ ██   ██ ███████ ███████
+   ██   ██ ██    ██ ██         ██    ██   ██ ██      ██
+   ██████  ██    ██ ██         ██    ███████ █████   ███████
+   ██      ██    ██ ██         ██    ██   ██ ██           ██
+   ██       ██████   ██████    ██    ██   ██ ███████ ███████
+   ===================================================================== */
+const Purchases = {
+  getAll() { return DB.data.purchases; },
+  create(purchase) {
+    const items = purchase.items.map(it => {
+      const p = Products.getById(it.productId);
+      return { productId: it.productId, productName: p ? p.name : 'منتج محذوف', qty: it.qty, price: it.price, total: it.qty * it.price };
+    });
+    const total = items.reduce((s, i) => s + i.total, 0);
+    const paid = Number(purchase.paid) || 0;
+    const remaining = total - paid;
+    const pur = {
+      id: DB.uid(), date: new Date().toISOString(),
+      supplierId: purchase.supplierId || null,
+      supplierName: purchase.supplierId ? ((Suppliers.getById(purchase.supplierId) || {}).name || 'مورد') : 'مورد غير محدد',
+      items, total, paid, remaining, notes: purchase.notes || '', status: remaining > 0 ? 'آجل' : 'مدفوع'
+    };
+    for (const it of items) Products.addStock(it.productId, it.qty, it.price);
+    if (remaining > 0 && purchase.supplierId) Suppliers.addDebt(purchase.supplierId, remaining, pur.id, pur.date);
+    DB.data.purchases.unshift(pur);
+    DB.log('عملية شراء', { purchaseId: pur.id, total, paid, remaining }); DB.save();
+    return pur;
+  },
+  getTotalPurchases() { return this.getAll().reduce((s, x) => s + x.total, 0); }
+};
+
+/* =====================================================================
+    ██████ ██    ██ ███    ███ ████████ ███████ ██████  ███████
+   ██      ██    ██ ████  ████    ██    ██      ██   ██ ██
+   ██      ██    ██ ██ ████ ██    ██    █████   ██████  ███████
+   ██      ██    ██ ██  ██  ██    ██    ██      ██   ██      ██
+    ██████  ██████  ██      ██    ██    ███████ ██   ██ ███████
+   ===================================================================== */
+const Customers = {
+  getAll() { return DB.data.customers; },
+  getById(id) { return DB.data.customers.find(c => c.id === id); },
+  add(data) {
+    const c = { id: DB.uid(), name: data.name, phone: data.phone || '', address: data.address || '', notes: data.notes || '', createdAt: new Date().toISOString(), totalPurchases: 0, totalPaid: 0, balance: 0, lastPurchase: null, lastPayment: null, transactions: [] };
+    DB.data.customers.push(c); DB.log('إضافة عميل', { customerId: c.id, name: c.name }); DB.save(); return c;
+  },
+  update(id, data) { const c = this.getById(id); if (!c) return; Object.assign(c, { name: data.name, phone: data.phone, address: data.address, notes: data.notes }); DB.save(); },
+  delete(id) {
+    const c = this.getById(id); if (!c) return;
+    if (c.balance !== 0 && !confirm('العميل لديه رصيد ' + Utils.formatMoney(c.balance) + '. حذف على أي حال؟')) return;
+    DB.data.customers = DB.data.customers.filter(x => x.id !== id); DB.log('حذف عميل', { customerId: id, name: c.name }); DB.save();
+  },
+  addDebt(customerId, amount, refId, date) {
+    const c = this.getById(customerId); if (!c) return;
+    c.totalPurchases += amount; c.balance += amount; c.lastPurchase = date;
+    c.transactions.push({ type: 'debt', amount, date, refId, description: 'فاتورة بيع' }); DB.save();
+  },
+  collectPayment(customerId, amount, notes) {
+    notes = notes || ''; const c = this.getById(customerId);
+    if (!c) return { ok: false, msg: 'العميل غير موجود' };
+    if (amount <= 0) return { ok: false, msg: 'المبلغ غير صحيح' };
+    if (amount > c.balance) return { ok: false, msg: 'المبلغ أكبر من الرصيد' };
+    c.totalPaid += amount; c.balance -= amount; c.lastPayment = new Date().toISOString();
+    c.transactions.push({ type: 'payment', amount, date: new Date().toISOString(), description: notes || 'تحصيل دفعة' });
+    DB.log('تحصيل من عميل', { customerId, amount }); DB.save(); return { ok: true };
+  },
+  getTotalDebts() { return this.getAll().reduce((s, c) => s + Math.max(0, c.balance), 0); },
+  getTopDebtors(limit) { limit = limit || 10; return [...this.getAll()].filter(c => c.balance > 0).sort((a, b) => b.balance - a.balance).slice(0, limit); },
+  getOverdue(days) {
+    days = days || 30; const now = new Date();
+    return this.getAll().filter(c => {
+      if (c.balance <= 0) return false;
+      const last = c.lastPurchase ? new Date(c.lastPurchase) : new Date(c.createdAt);
+      return Utils.daysBetween(last, now) > days;
+    });
+  }
+};
+
+/* =====================================================================
+   ███████ ██    ██ ██████  ██      ██ ██████   █████  ██████  ███████
+   ██      ██    ██ ██   ██ ██      ██ ██   ██ ██   ██ ██   ██ ██
+   ███████ ██    ██ ██████  ██      ██ ██   ██ ███████ ██████  ███████
+        ██ ██    ██ ██      ██      ██ ██   ██ ██   ██ ██   ██      ██
+   ███████  ██████  ██      ███████ ██ ██████  ██   ██ ██   ██ ███████
+   ===================================================================== */
+const Suppliers = {
+  getAll() { return DB.data.suppliers; },
+  getById(id) { return DB.data.suppliers.find(s => s.id === id); },
+  add(data) {
+    const s = { id: DB.uid(), name: data.name, phone: data.phone || '', address: data.address || '', notes: data.notes || '', createdAt: new Date().toISOString(), totalPurchases: 0, totalPaid: 0, balance: 0, lastPurchase: null, lastPayment: null, transactions: [] };
+    DB.data.suppliers.push(s); DB.log('إضافة مورد', { supplierId: s.id, name: s.name }); DB.save(); return s;
+  },
+  update(id, data) { const s = this.getById(id); if (!s) return; Object.assign(s, { name: data.name, phone: data.phone, address: data.address, notes: data.notes }); DB.save(); },
+  delete(id) {
+    const s = this.getById(id); if (!s) return;
+    if (s.balance !== 0 && !confirm('المورد لديه رصيد ' + Utils.formatMoney(s.balance) + '. حذف؟')) return;
+    DB.data.suppliers = DB.data.suppliers.filter(x => x.id !== id); DB.log('حذف مورد', { supplierId: id, name: s.name }); DB.save();
+  },
+  addDebt(supplierId, amount, refId, date) {
+    const s = this.getById(supplierId); if (!s) return;
+    s.totalPurchases += amount; s.balance += amount; s.lastPurchase = date;
+    s.transactions.push({ type: 'debt', amount, date, refId, description: 'فاتورة شراء' }); DB.save();
+  },
+  paySupplier(supplierId, amount, notes) {
+    notes = notes || ''; const s = this.getById(supplierId);
+    if (!s) return { ok: false, msg: 'المورد غير موجود' };
+    if (amount <= 0) return { ok: false, msg: 'المبلغ غير صحيح' };
+    if (amount > s.balance) return { ok: false, msg: 'المبلغ أكبر من المستحق' };
+    s.totalPaid += amount; s.balance -= amount; s.lastPayment = new Date().toISOString();
+    s.transactions.push({ type: 'payment', amount, date: new Date().toISOString(), description: notes || 'دفعة للمورد' });
+    DB.log('دفع لمورد', { supplierId, amount }); DB.save(); return { ok: true };
+  },
+  getTotalDebts() { return this.getAll().reduce((s, x) => s + Math.max(0, x.balance), 0); }
+};
+
+/* =====================================================================
+   ███████ ██   ██ ██████  ███████ ███    ██ ███████ ███████
+   ██       ██ ██  ██   ██ ██      ████   ██ ██      ██
+   █████     ███   ██████  █████   ██ ██  ██ ███████ ███████
+   ██       ██ ██  ██      ██      ██  ██ ██      ██      ██
+   ███████ ██   ██ ██      ███████ ██   ████ ███████ ███████
+   ===================================================================== */
+const Expenses = {
+  getAll() { return DB.data.expenses; },
+  add(data) {
+    const e = { id: DB.uid(), date: data.date || new Date().toISOString(), category: data.category, amount: Number(data.amount) || 0, description: data.description || '', paymentMethod: data.paymentMethod || 'نقد', createdAt: new Date().toISOString() };
+    DB.data.expenses.unshift(e); DB.log('إضافة مصروف', { expenseId: e.id, amount: e.amount, category: e.category }); DB.save(); return e;
+  },
+  delete(id) { if (!confirm('حذف المصروف؟')) return; DB.data.expenses = DB.data.expenses.filter(x => x.id !== id); DB.log('حذف مصروف', { expenseId: id }); DB.save(); },
+  getTotal() { return this.getAll().reduce((s, x) => s + x.amount, 0); },
+  getMonthExpenses(year, month) { return this.getAll().filter(e => { const d = new Date(e.date); return d.getFullYear() === year && d.getMonth() === month; }); },
+  getMonthTotal(year, month) { return this.getMonthExpenses(year, month).reduce((s, e) => s + e.amount, 0); },
+  getByCategory() { const map = {}; this.getAll().forEach(e => { map[e.category] = (map[e.category] || 0) + e.amount; }); return map; }
+};
+
+/* =====================================================================
+    ██████  █████  ██████   █████  ██
+   ██      ██   ██ ██   ██ ██   ██ ██
+   ██      ███████ ██████  ███████ ██
+   ██      ██   ██ ██      ██   ██ ██
+    ██████ ██   ██ ██      ██   ██ ███████
+   ===================================================================== */
+const Capital = {
+  get() { return DB.data.capital; },
+  getInitialVariable() { return DB.data.capital.initialVariable; },
+  getFixed() { return DB.data.capital.fixed; },
+  getTotalAdditional() { return DB.data.capital.additionalCapital.reduce((s, x) => s + x.amount, 0); },
+  getTotalWithdrawals() { return DB.data.capital.withdrawals.reduce((s, x) => s + x.amount, 0); },
+  getTotalReinvested() { return DB.data.capital.reinvested.reduce((s, x) => s + x.amount, 0); },
+  getTotal() { const c = DB.data.capital; return c.initialVariable + c.fixed + this.getTotalAdditional() + this.getTotalReinvested() - this.getTotalWithdrawals(); },
+  getCalculatedCapital() { return this.getAssets() - this.getLiabilities(); },
+  getAssets() { return this.getCash() + Products.getInventoryValue() + Customers.getTotalDebts() + DB.data.capital.fixed; },
+  getLiabilities() { return Suppliers.getTotalDebts(); },
+  getCash() {
+    const c = DB.data.capital;
+    const start = c.initialVariable + this.getTotalAdditional();
+    const cashIn = Sales.getAll().filter(s => s.paymentMethod === 'نقد').reduce((s, x) => s + x.paid, 0);
+    const collections = DB.data.customers.reduce((s, cu) => s + cu.totalPaid, 0);
+    const purchasesPaid = DB.data.purchases.reduce((s, p) => s + p.paid, 0);
+    const suppliersPaid = DB.data.suppliers.reduce((s, su) => s + su.totalPaid, 0);
+    const expenses = Expenses.getTotal();
+    const withdrawals = this.getTotalWithdrawals();
+    return start + cashIn + collections - purchasesPaid - suppliersPaid - expenses - withdrawals;
+  },
+  addAdditional(amount, notes) { notes = notes || ''; DB.data.capital.additionalCapital.push({ id: DB.uid(), amount: Number(amount), date: new Date().toISOString(), notes }); DB.log('رأس مال إضافي', { amount }); DB.save(); },
+  addWithdrawal(amount, notes) { notes = notes || ''; DB.data.capital.withdrawals.push({ id: DB.uid(), amount: Number(amount), date: new Date().toISOString(), notes }); DB.log('سحب شخصي', { amount }); DB.save(); },
+  addReinvested(amount, notes) { notes = notes || ''; DB.data.capital.reinvested.push({ id: DB.uid(), amount: Number(amount), date: new Date().toISOString(), notes }); DB.log('إعادة استثمار', { amount }); DB.save(); },
+  updateInitial(variable, fixed) { DB.data.capital.initialVariable = Number(variable); DB.data.capital.fixed = Number(fixed); DB.log('تحديث رأس المال الابتدائي', { variable, fixed }); DB.save(); }
+};
+
+/* =====================================================================
+    █████  ██     ██  ██████  ███    ███  ██████  ███████
+   ██   ██ ██     ██ ██    ██ ████  ████ ██    ██ ██
+   ███████ ██     ██ ██    ██ ██ ████ ██ ██    ██ █████
+   ██   ██ ██     ██ ██    ██ ██  ██  ██ ██    ██ ██
+   ██   ██ ███████   ██████  ██      ██  ██████  ███████
+   ===================================================================== */
+const AI = {
+  analyze() {
+    return [
+      this.analyzeGrowth(), this.analyzeCapital(), this.analyzeSales(),
+      this.analyzeTopProducts(), this.analyzeFastMoving(), this.analyzeSlowMoving(),
+      this.analyzeReceivables(), this.analyzeOverdue(), this.analyzeExpenses(),
+      this.analyzeNetProfit(), this.analyzeReinvestment(), this.analyzeFrozenCapital(),
+      this.analyzePurchaseRecommendations(), this.analyzeLiquidity()
+    ];
+  },
+  analyzeGrowth() {
+    const now = new Date();
+    const thisM = Sales.getMonthSales(now.getFullYear(), now.getMonth());
+    const lastD = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastM = Sales.getMonthSales(lastD.getFullYear(), lastD.getMonth());
+    const tT = thisM.reduce((s, x) => s + x.subtotal, 0);
+    const lT = lastM.reduce((s, x) => s + x.subtotal, 0);
+    let status = 'neutral', change = 'لا توجد بيانات كافية';
+    if (lT === 0 && tT === 0) { status = 'neutral'; }
+    else if (lT === 0) { status = 'positive'; change = 'شهر نشط لأول مرة'; }
+    else { const pct = ((tT - lT) / lT) * 100; status = pct >= 0 ? 'positive' : 'negative'; change = (pct >= 0 ? '↑' : '↓') + ' ' + Math.abs(pct).toFixed(1) + '% عن الشهر السابق'; }
+    return { title: '📈 هل المشروع ينمو؟', status, text: 'مبيعات الشهر الحالي: <span class="metric ' + status + '">' + Utils.formatMoney(tT) + '</span><br>' + change + '<br>' + (status === 'positive' ? 'المشروع في مسار نمو إيجابي.' : status === 'negative' ? '⚠️ المبيعات في انخفاض، يجب مراجعة الأسباب.' : 'ابدأ بتسجيل عمليات البيع لرصد النمو.') };
+  },
+  analyzeCapital() {
+    const calculated = Capital.getCalculatedCapital();
+    const initial = Capital.getInitialVariable() + Capital.getFixed();
+    const diff = calculated - initial;
+    const pct = initial > 0 ? (diff / initial) * 100 : 0;
+    return { title: '💰 حالة رأس المال', status: diff >= 0 ? 'positive' : 'negative', text: 'رأس المال المُدخل: <span class="metric">' + Utils.formatMoney(initial) + '</span><br>رأس المال المحسوب (أصول - التزامات): <span class="metric ' + (diff >= 0 ? 'positive' : 'negative') + '">' + Utils.formatMoney(calculated) + '</span><br>التغيير: <span class="metric ' + (diff >= 0 ? 'positive' : 'negative') + '">' + (diff >= 0 ? '+' : '') + Utils.formatMoney(diff) + ' (' + pct.toFixed(2) + '%)</span><br>' + (diff >= 0 ? '✅ رأس المال في حالة جيدة.' : '⚠️ رأس المال في انخفاض، راجع المصروفات والديون.') };
+  },
+  analyzeSales() {
+    const total = Sales.getTotalSales(); const count = Sales.getAll().length;
+    const avg = count > 0 ? total / count : 0;
+    return { title: '🛒 أداء المبيعات', status: total > 0 ? 'positive' : 'neutral', text: 'إجمالي المبيعات: <span class="metric">' + Utils.formatMoney(total) + '</span><br>عدد الفواتير: <span class="metric">' + count + '</span><br>متوسط الفاتورة: <span class="metric">' + Utils.formatMoney(avg) + '</span><br>' + (count === 0 ? 'لم تُسجل أي مبيعات بعد.' : 'استمر في تسجيل المبيعات لتحليل الاتجاه.') };
+  },
+  analyzeTopProducts() {
+    const top = Products.getAll().filter(p => p.totalSold > 0).sort((a, b) => (b.sellingPrice - b.avgCost) * b.totalSold - (a.sellingPrice - a.avgCost) * a.totalSold).slice(0, 5);
+    if (top.length === 0) return { title: '⭐ المنتجات الأكثر ربحاً', status: 'neutral', text: 'لا توجد بيانات مبيعات كافية.' };
+    const list = top.map(p => '<li>' + Utils.escapeHtml(p.name) + ': ' + Utils.formatMoney((p.sellingPrice - p.avgCost) * p.totalSold) + ' ربح (' + p.totalSold + ' وحدة)</li>').join('');
+    return { title: '⭐ المنتجات الأكثر ربحاً', status: 'positive', text: '<ul>' + list + '</ul>' };
+  },
+  analyzeFastMoving() {
+    const top = Products.getAll().filter(p => p.totalSold > 0).sort((a, b) => b.totalSold - a.totalSold).slice(0, 5);
+    if (top.length === 0) return { title: '🚀 المنتجات الأسرع دوراناً', status: 'neutral', text: 'لا توجد بيانات.' };
+    const list = top.map(p => '<li>' + Utils.escapeHtml(p.name) + ': ' + p.totalSold + ' وحدة مباعة</li>').join('');
+    return { title: '🚀 المنتجات الأسرع دوراناً', status: 'positive', text: '<ul>' + list + '</ul><p>هذه المنتجات يجب الحفاظ على توفرها دائماً.</p>' };
+  },
+  analyzeSlowMoving() {
+    const slow = Products.getSlowMoving(60);
+    if (slow.length === 0) return { title: '🐢 المنتجات الراكدة', status: 'positive', text: '✅ لا توجد منتجات راكدة (لم تتحرك منذ 60 يوم).' };
+    const value = slow.reduce((s, p) => s + (p.quantity * p.avgCost), 0);
+    const list = slow.slice(0, 5).map(p => '<li>' + Utils.escapeHtml(p.name) + ': ' + p.quantity + ' وحدة × ' + Utils.formatMoney(p.avgCost) + '</li>').join('');
+    return { title: '🐢 المنتجات الراكدة', status: 'warning', text: '<strong>' + slow.length + ' منتج</strong> لم يتحرك منذ أكثر من 60 يوماً.<br>رأس المال المجمد: <span class="metric negative">' + Utils.formatMoney(value) + '</span><ul>' + list + (slow.length > 5 ? '<li>...و' + (slow.length - 5) + ' منتجات أخرى</li>' : '') + '</ul><p>💡 فكر في عمل عروض أو تخفيضات لتحريكها.</p>' };
+  },
+  analyzeReceivables() {
+    const total = Customers.getTotalDebts(); const capital = Capital.getTotal();
+    const ratio = capital > 0 ? (total / capital) * 100 : 0;
+    return { title: '💵 الأموال عند العملاء', status: ratio > 30 ? 'warning' : 'positive', text: 'إجمالي الديون: <span class="metric">' + Utils.formatMoney(total) + '</span><br>نسبة من رأس المال: <span class="metric ' + (ratio > 30 ? 'negative' : 'positive') + '">' + ratio.toFixed(1) + '%</span><br>' + (ratio > 30 ? '⚠️ نسبة مرتفعة. ركز على التحصيل لتحرير السيولة.' : ratio > 15 ? 'نسبة مقبولة، لكن تابع التحصيل.' : '✅ النسبة في الحدود الآمنة.') };
+  },
+  analyzeOverdue() {
+    const overdue = Customers.getOverdue(DB.data.settings.overdueDays);
+    if (overdue.length === 0) return { title: '⏰ الديون المتأخرة', status: 'positive', text: '✅ لا توجد ديون متأخرة.' };
+    const total = overdue.reduce((s, c) => s + c.balance, 0);
+    const list = overdue.slice(0, 5).map(c => '<li>' + Utils.escapeHtml(c.name) + ': ' + Utils.formatMoney(c.balance) + ' — آخر شراء: ' + Utils.formatDate(c.lastPurchase) + '</li>').join('');
+    return { title: '⏰ الديون المتأخرة', status: 'danger', text: '<strong>' + overdue.length + ' عميل</strong> تجاوزوا مدة السداد (' + DB.data.settings.overdueDays + ' يوم).<br>الإجمالي: <span class="metric negative">' + Utils.formatMoney(total) + '</span><ul>' + list + '</ul><p>📞 تواصل مع هؤلاء العملاء فوراً.</p>' };
+  },
+  analyzeExpenses() {
+    const now = new Date();
+    const thisMonth = Expenses.getMonthTotal(now.getFullYear(), now.getMonth());
+    const last = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastMonth = Expenses.getMonthTotal(last.getFullYear(), last.getMonth());
+    let change = '', status = 'positive';
+    if (lastMonth > 0) { const pct = ((thisMonth - lastMonth) / lastMonth) * 100; status = pct > 10 ? 'negative' : 'positive'; change = (pct >= 0 ? '↑' : '↓') + ' ' + Math.abs(pct).toFixed(1) + '% عن الشهر السابق'; }
+    const byCategory = Expenses.getByCategory();
+    const topCat = Object.entries(byCategory).sort((a, b) => b[1] - a[1]).slice(0, 3);
+    const catList = topCat.map(([k, v]) => '<li>' + k + ': ' + Utils.formatMoney(v) + '</li>').join('');
+    return { title: '💸 المصروفات', status, text: 'مصروفات الشهر: <span class="metric">' + Utils.formatMoney(thisMonth) + '</span><br>' + change + '<br>أعلى الفئات:<ul>' + (catList || '<li>لا توجد مصروفات</li>') + '</ul>' };
+  },
+  analyzeNetProfit() {
+    const sales = Sales.getTotalSales(); const cogs = Sales.getTotalCogs(); const expenses = Expenses.getTotal();
+    if (sales === 0) return { title: '📊 صافي الربح', status: 'neutral', text: 'لا يمكن حساب صافي الربح. لم تُسجل مبيعات بعد.' };
+    const gross = sales - cogs; const net = gross - expenses; const netMargin = sales > 0 ? (net / sales) * 100 : 0;
+    return { title: '📊 صافي الربح', status: net >= 0 ? 'positive' : 'negative', text: 'المبيعات: <span class="metric">' + Utils.formatMoney(sales) + '</span><br>تكلفة البضاعة: <span class="metric">' + Utils.formatMoney(cogs) + '</span><br>إجمالي الربح: <span class="metric positive">' + Utils.formatMoney(gross) + '</span><br>المصروفات: <span class="metric">' + Utils.formatMoney(expenses) + '</span><br><strong>صافي الربح: <span class="metric ' + (net >= 0 ? 'positive' : 'negative') + '">' + Utils.formatMoney(net) + '</span></strong><br>هامش الربح الصافي: <span class="metric ' + (netMargin >= 0 ? 'positive' : 'negative') + '">' + netMargin.toFixed(2) + '%</span>' };
+  },
+  analyzeReinvestment() {
+    const net = (Sales.getTotalSales() - Sales.getTotalCogs()) - Expenses.getTotal();
+    const withdrawals = Capital.getTotalWithdrawals(); const available = net - withdrawals;
+    return { title: '🔄 الأرباح المتاحة لإعادة الاستثمار', status: available > 0 ? 'positive' : 'neutral', text: 'صافي الربح: <span class="metric">' + Utils.formatMoney(net) + '</span><br>السحوبات الشخصية: <span class="metric">' + Utils.formatMoney(withdrawals) + '</span><br>المتاح لإعادة الاستثمار: <span class="metric ' + (available > 0 ? 'positive' : 'negative') + '">' + Utils.formatMoney(available) + '</span>' };
+  },
+  analyzeFrozenCapital() {
+    const inv = Products.getInventoryValue(); const rec = Customers.getTotalDebts(); const cap = Capital.getTotal();
+    const iR = cap > 0 ? (inv / cap) * 100 : 0; const rR = cap > 0 ? (rec / cap) * 100 : 0;
+    return { title: '🧊 رأس المال المجمد', status: (iR + rR) > 70 ? 'warning' : 'positive', text: 'مجمد في المخزون: <span class="metric">' + Utils.formatMoney(inv) + '</span> (' + iR.toFixed(1) + '%)<br>مجمد في ديون العملاء: <span class="metric">' + Utils.formatMoney(rec) + '</span> (' + rR.toFixed(1) + '%)<br><strong>الإجمالي: ' + Utils.formatMoney(inv + rec) + ' (' + (iR + rR).toFixed(1) + '%)</strong><br>' + ((iR + rR) > 70 ? '⚠️ نسبة عالية، قد تواجه ضغطاً على السيولة.' : '✅ النسبة معقولة.') };
+  },
+  analyzePurchaseRecommendations() {
+    const all = Products.getAll();
+    const increase = all.filter(p => p.totalSold > 10 && p.quantity < p.minStock * 2);
+    const decrease = all.filter(p => p.totalSold === 0 && p.quantity > 0);
+    const promo = Products.getSlowMoving(45).filter(p => p.quantity > 5);
+    return { title: '🎯 توصيات الشراء', status: 'info', text: '<strong>زيادة الشراء:</strong> ' + increase.length + ' منتج (مبيعات جيدة ومخزون منخفض)<br><strong>تقليل الشراء:</strong> ' + decrease.length + ' منتج (لم يبع)<br><strong>عروض وتخفيضات:</strong> ' + promo.length + ' منتج راكد<br><p>💡 راجع صفحة المنتجات للتفاصيل.</p>' };
+  },
+  analyzeLiquidity() {
+    const cash = Capital.getCash(); const payables = Suppliers.getTotalDebts(); const net = cash - payables;
+    return { title: '💧 السيولة', status: net > 0 ? 'positive' : 'negative', text: 'النقد المتاح: <span class="metric">' + Utils.formatMoney(cash) + '</span><br>مستحقات للموردين: <span class="metric">' + Utils.formatMoney(payables) + '</span><br>صافي السيولة: <span class="metric ' + (net > 0 ? 'positive' : 'negative') + '">' + Utils.formatMoney(net) + '</span><br>' + (net < 0 ? '⚠️ سيولة سلبية! راجع التحصيل والمصروفات.' : '✅ سيولة إيجابية.') };
+  },
+  getMetrics() {
+    const sales = Sales.getTotalSales(); const cogs = Sales.getTotalCogs(); const expenses = Expenses.getTotal();
+    const capital = Capital.getTotal(); const inventory = Products.getInventoryValue(); const receivables = Customers.getTotalDebts();
+    const grossProfit = sales - cogs; const netProfit = grossProfit - expenses;
+    return {
+      inventoryTurnover: Utils.calc.inventoryTurnover(cogs, inventory),
+      grossMargin: Utils.calc.grossMargin(sales, cogs),
+      netMargin: Utils.calc.netMargin(netProfit, sales),
+      returnOnCapital: Utils.calc.returnOnCapital(netProfit, capital),
+      receivablesRatio: Utils.calc.receivablesRatio(receivables, sales),
+      capitalTurnover: Utils.calc.capitalTurnover(sales, capital)
+    };
+  }
+};
+
+/* =====================================================================
+   ██████   █████  ███████ ███████ ██   ██ ██    ██ ██████
+   ██   ██ ██   ██ ██      ██      ██   ██ ██    ██ ██   ██
+   ██   ██ ███████ ███████ █████   ███████ ██    ██ ██   ██
+   ██   ██ ██   ██      ██ ██      ██   ██ ██    ██ ██   ██
+   ██████  ██   ██ ███████ ███████ ██   ██  ██████  ██████
+   ===================================================================== */
+const Dashboard = {
+  render() {
+    const calculatedCapital = Capital.getCalculatedCapital();
+    const inventoryCost = Products.getInventoryValue();
+    const inventorySell = Products.getInventorySellingValue();
+    const cash = Capital.getCash();
+    const receivables = Customers.getTotalDebts();
+    const payables = Suppliers.getTotalDebts();
+    const sales = Sales.getTotalSales();
+    const cogs = Sales.getTotalCogs();
+    const grossProfit = sales - cogs;
+    const expenses = Expenses.getTotal();
+    const netProfit = grossProfit - expenses;
+    const reinvested = Capital.getTotalReinvested();
+    const withdrawals = Capital.getTotalWithdrawals();
+    const metrics = AI.getMetrics();
+    const initialCapital = Capital.getInitialVariable() + Capital.getFixed();
+    const capitalChange = calculatedCapital - initialCapital;
+    const capitalPct = initialCapital > 0 ? (capitalChange / initialCapital) * 100 : 0;
+
+    const alerts = [];
+    if (receivables > 0) alerts.push('<div class="alert alert-warning"><i class="fas fa-exclamation-circle"></i> هناك ' + Utils.formatMoney(receivables) + ' ديون عند العملاء.</div>');
+    const slow = Products.getSlowMoving(60);
+    if (slow.length > 0) alerts.push('<div class="alert alert-warning"><i class="fas fa-box"></i> هناك ' + slow.length + ' منتج لم يتحرك منذ 60 يوماً.</div>');
+    const overdue = Customers.getOverdue(DB.data.settings.overdueDays);
+    if (overdue.length > 0) alerts.push('<div class="alert alert-danger"><i class="fas fa-clock"></i> ' + overdue.length + ' عميل تجاوزوا موعد السداد.</div>');
+    const lowStock = Products.getAll().filter(p => p.quantity > 0 && p.quantity <= p.minStock);
+    if (lowStock.length > 0) alerts.push('<div class="alert alert-info"><i class="fas fa-box-open"></i> ' + lowStock.length + ' منتج قارب على النفاد.</div>');
+    if (initialCapital > 0 && (inventoryCost / initialCapital) > 0.5) alerts.push('<div class="alert alert-warning"><i class="fas fa-snowflake"></i> جزء كبير من رأس المال مجمد في المخزون (' + ((inventoryCost/initialCapital)*100).toFixed(0) + '%).</div>');
+    if (alerts.length === 0) alerts.push('<div class="alert alert-success"><i class="fas fa-check-circle"></i> كل شيء يسير بشكل جيد!</div>');
+
+    const topSelling = Products.getTopSelling(5);
+    const topDebtors = Customers.getTopDebtors(5);
+
+    const html = '<div class="alerts-container">' + alerts.join('') + '</div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-sync-alt"></i> دورة رأس المال</div></div>' +
+      '<div class="capital-cycle">' +
+      '<div class="cycle-step"><i class="fas fa-money-bill"></i><span>رأس المال</span></div><i class="fas fa-arrow-left cycle-arrow"></i>' +
+      '<div class="cycle-step"><i class="fas fa-shopping-cart"></i><span>شراء</span></div><i class="fas fa-arrow-left cycle-arrow"></i>' +
+      '<div class="cycle-step"><i class="fas fa-warehouse"></i><span>مخزون</span></div><i class="fas fa-arrow-left cycle-arrow"></i>' +
+      '<div class="cycle-step"><i class="fas fa-cash-register"></i><span>مبيعات</span></div><i class="fas fa-arrow-left cycle-arrow"></i>' +
+      '<div class="cycle-step"><i class="fas fa-wallet"></i><span>نقد/ديون</span></div><i class="fas fa-arrow-left cycle-arrow"></i>' +
+      '<div class="cycle-step"><i class="fas fa-hand-holding-usd"></i><span>تحصيل</span></div><i class="fas fa-arrow-left cycle-arrow"></i>' +
+      '<div class="cycle-step"><i class="fas fa-chart-line"></i><span>ربح</span></div>' +
+      '</div></div>' +
+      '<div class="stats-grid">' +
+      '<div class="stat-card gold"><div class="stat-label"><i class="fas fa-coins"></i> رأس المال الابتدائي</div><div class="stat-value">' + Utils.formatMoney(initialCapital) + '</div></div>' +
+      '<div class="stat-card ' + (capitalChange >= 0 ? 'green' : 'red') + '"><div class="stat-label"><i class="fas fa-briefcase"></i> رأس المال الحالي</div><div class="stat-value">' + Utils.formatMoney(calculatedCapital) + '</div><div class="stat-change ' + (capitalChange >= 0 ? 'up' : 'down') + '">' + (capitalChange >= 0 ? '↑' : '↓') + ' ' + Math.abs(capitalPct).toFixed(2) + '%</div></div>' +
+      '<div class="stat-card"><div class="stat-label"><i class="fas fa-boxes"></i> المخزون (تكلفة)</div><div class="stat-value">' + Utils.formatMoney(inventoryCost) + '</div></div>' +
+      '<div class="stat-card"><div class="stat-label"><i class="fas fa-tags"></i> المخزون (بيع)</div><div class="stat-value">' + Utils.formatMoney(inventorySell) + '</div></div>' +
+      '<div class="stat-card green"><div class="stat-label"><i class="fas fa-wallet"></i> النقد الموجود</div><div class="stat-value">' + Utils.formatMoney(cash) + '</div></div>' +
+      '<div class="stat-card orange"><div class="stat-label"><i class="fas fa-users"></i> ديون العملاء</div><div class="stat-value">' + Utils.formatMoney(receivables) + '</div></div>' +
+      '<div class="stat-card red"><div class="stat-label"><i class="fas fa-truck"></i> ديون الموردين</div><div class="stat-value">' + Utils.formatMoney(payables) + '</div></div>' +
+      '<div class="stat-card"><div class="stat-label"><i class="fas fa-cash-register"></i> إجمالي المبيعات</div><div class="stat-value">' + Utils.formatMoney(sales) + '</div></div>' +
+      '<div class="stat-card"><div class="stat-label"><i class="fas fa-box"></i> تكلفة البضاعة</div><div class="stat-value">' + Utils.formatMoney(cogs) + '</div></div>' +
+      '<div class="stat-card green"><div class="stat-label"><i class="fas fa-chart-line"></i> إجمالي الربح</div><div class="stat-value">' + Utils.formatMoney(grossProfit) + '</div></div>' +
+      '<div class="stat-card red"><div class="stat-label"><i class="fas fa-receipt"></i> المصروفات</div><div class="stat-value">' + Utils.formatMoney(expenses) + '</div></div>' +
+      '<div class="stat-card ' + (netProfit >= 0 ? 'green' : 'red') + '"><div class="stat-label"><i class="fas fa-chart-pie"></i> صافي الربح</div><div class="stat-value">' + Utils.formatMoney(netProfit) + '</div></div>' +
+      '<div class="stat-card gold"><div class="stat-label"><i class="fas fa-redo"></i> أرباح معاد استثمارها</div><div class="stat-value">' + Utils.formatMoney(reinvested) + '</div></div>' +
+      '<div class="stat-card orange"><div class="stat-label"><i class="fas fa-hand-holding-usd"></i> السحوبات الشخصية</div><div class="stat-value">' + Utils.formatMoney(withdrawals) + '</div></div>' +
+      '</div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-tachometer-alt"></i> المؤشرات المالية</div></div>' +
+      '<div class="stats-grid">' +
+      '<div class="stat-card"><div class="stat-label">معدل دوران المخزون</div><div class="stat-value">' + metrics.inventoryTurnover.toFixed(2) + '</div><small class="text-muted">كم مرة يُباع المخزون سنوياً</small></div>' +
+      '<div class="stat-card"><div class="stat-label">معدل دوران رأس المال</div><div class="stat-value">' + metrics.capitalTurnover.toFixed(2) + '</div><small class="text-muted">كفاءة استخدام رأس المال</small></div>' +
+      '<div class="stat-card"><div class="stat-label">هامش الربح الإجمالي</div><div class="stat-value">' + metrics.grossMargin.toFixed(2) + '%</div></div>' +
+      '<div class="stat-card"><div class="stat-label">هامش الربح الصافي</div><div class="stat-value">' + metrics.netMargin.toFixed(2) + '%</div></div>' +
+      '<div class="stat-card"><div class="stat-label">العائد على رأس المال</div><div class="stat-value">' + metrics.returnOnCapital.toFixed(2) + '%</div></div>' +
+      '<div class="stat-card"><div class="stat-label">نسبة الذمم المدينة</div><div class="stat-value">' + metrics.receivablesRatio.toFixed(2) + '%</div></div>' +
+      '</div></div>' +
+      '<div class="stats-grid">' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-fire text-danger"></i> الأسرع مبيعاً</div></div>' +
+      (topSelling.length === 0 ? '<div class="empty-state"><i class="fas fa-inbox"></i><p>لا توجد مبيعات بعد</p></div>' : '<ul style="list-style:none;">' + topSelling.map(p => '<li style="padding:8px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;"><span>' + Utils.escapeHtml(p.name) + '</span><span class="badge badge-success">' + p.totalSold + ' وحدة</span></li>').join('') + '</ul>') +
+      '</div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-bed text-warning"></i> المنتجات الراكدة</div></div>' +
+      (slow.length === 0 ? '<div class="empty-state"><i class="fas fa-check-circle"></i><p>لا توجد منتجات راكدة</p></div>' : '<ul style="list-style:none;">' + slow.slice(0,5).map(p => '<li style="padding:8px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;"><span>' + Utils.escapeHtml(p.name) + '</span><span class="badge badge-warning">' + p.quantity + ' وحدة</span></li>').join('') + '</ul>') +
+      '</div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-exclamation-triangle text-warning"></i> أعلى ديون العملاء</div></div>' +
+      (topDebtors.length === 0 ? '<div class="empty-state"><i class="fas fa-check-circle"></i><p>لا توجد ديون</p></div>' : '<ul style="list-style:none;">' + topDebtors.map(c => '<li style="padding:8px 0;border-bottom:1px solid #eee;display:flex;justify-content:space-between;"><span>' + Utils.escapeHtml(c.name) + '</span><span class="badge badge-danger">' + Utils.formatMoney(c.balance) + '</span></li>').join('') + '</ul>') +
+      '</div></div>';
+
+    document.getElementById('pageContent').innerHTML = html;
+  }
+};
+
+/* =====================================================================
+   ██████  ███████ ██████   ██████  ██████  ███████ ███████
+   ██   ██ ██      ██   ██ ██    ██ ██   ██ ██      ██
+   ██████  █████   ██████  ██    ██ ██████  █████   ███████
+   ██   ██ ██      ██      ██    ██ ██   ██ ██           ██
+   ██   ██ ███████ ██       ██████  ██   ██ ███████ ███████
+   ===================================================================== */
+const Reports = {
+  render() {
+    const now = new Date();
+    const thisData = this.getMonthData(now.getFullYear(), now.getMonth());
+    const lastD = new Date(now.getFullYear(), now.getMonth() - 1, 1);
+    const lastData = this.getMonthData(lastD.getFullYear(), lastD.getMonth());
+    const insights = [];
+    if (thisData.sales > lastData.sales && lastData.sales > 0) insights.push('✅ المبيعات ارتفعت ' + ((thisData.sales - lastData.sales) / lastData.sales * 100).toFixed(1) + '% — أداء جيد.');
+    else if (thisData.sales < lastData.sales && lastData.sales > 0) insights.push('⚠️ المبيعات انخفضت ' + ((lastData.sales - thisData.sales) / lastData.sales * 100).toFixed(1) + '% — راجع الأسباب.');
+    if (thisData.expenses > lastData.expenses && lastData.expenses > 0) insights.push('💸 المصروفات ارتفعت ' + ((thisData.expenses - lastData.expenses) / lastData.expenses * 100).toFixed(1) + '% — تحقق من البنود.');
+    if (thisData.netProfit > 0) insights.push('💰 صافي الربح إيجابي: ' + Utils.formatMoney(thisData.netProfit) + '.');
+    else if (thisData.netProfit < 0) insights.push('📉 صافي الربح سالب: ' + Utils.formatMoney(thisData.netProfit) + ' — يجب مراجعة التكاليف.');
+
+    const rr = (label, cur, prev, hl) => {
+      const diff = cur - prev; const pct = prev !== 0 ? (diff / prev) * 100 : (cur !== 0 ? 100 : 0);
+      const arrow = diff > 0 ? '↑' : diff < 0 ? '↓' : '—';
+      const cls = diff > 0 ? 'text-success' : diff < 0 ? 'text-danger' : 'text-muted';
+      return '<tr style="' + (hl ? 'font-weight:700;background:#FFF5F8;' : '') + '"><td>' + label + '</td><td>' + Utils.formatMoney(cur) + '</td><td>' + Utils.formatMoney(prev) + '</td><td class="' + cls + '">' + arrow + ' ' + Math.abs(pct).toFixed(1) + '%</td></tr>';
+    };
+
+    const html = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-file-invoice"></i> التقرير المالي — ' + thisData.name + '</div><div><button class="btn btn-sm btn-primary" onclick="window.print()"><i class="fas fa-print"></i> طباعة</button> <button class="btn btn-sm btn-gold" onclick="Reports.exportCSV()"><i class="fas fa-file-csv"></i> CSV</button></div></div>' +
+      '<table><thead><tr><th>البند</th><th>الشهر الحالي</th><th>الشهر السابق</th><th>التغيير</th></tr></thead><tbody>' +
+      rr('المبيعات', thisData.sales, lastData.sales) + rr('تكلفة المبيعات', thisData.cogs, lastData.cogs) +
+      rr('إجمالي الربح', thisData.grossProfit, lastData.grossProfit) + rr('المصروفات', thisData.expenses, lastData.expenses) +
+      rr('صافي الربح', thisData.netProfit, lastData.netProfit, true) +
+      '<tr><td colspan="4" style="background:#f5f5f5;font-weight:700;">الأرصدة (حتى اليوم)</td></tr>' +
+      rr('النقد', thisData.cash, lastData.cash) + rr('المخزون', thisData.inventory, lastData.inventory) +
+      rr('ديون العملاء', thisData.receivables, lastData.receivables) + rr('ديون الموردين', thisData.payables, lastData.payables) +
+      rr('رأس المال', thisData.capital, lastData.capital) +
+      '</tbody></table><div class="mt-20"><h4 style="color:var(--orchid-dark);margin-bottom:10px;">📝 التفسير</h4><div class="ai-answer"><p>' + (insights.join('<br>') || 'لا توجد تغييرات جوهرية هذا الشهر.') + '</p></div></div></div>';
+    document.getElementById('pageContent').innerHTML = html;
+  },
+  getMonthData(year, month) {
+    const ms = Sales.getMonthSales(year, month);
+    const sales = ms.reduce((s, x) => s + x.subtotal, 0);
+    const cogs = ms.reduce((s, x) => s + x.totalCogs, 0);
+    return { name: new Date(year, month, 1).toLocaleDateString('ar-SA', { year: 'numeric', month: 'long' }), sales, cogs, grossProfit: sales - cogs, expenses: Expenses.getMonthTotal(year, month), netProfit: (sales - cogs) - Expenses.getMonthTotal(year, month), cash: Capital.getCash(), inventory: Products.getInventoryValue(), receivables: Customers.getTotalDebts(), payables: Suppliers.getTotalDebts(), capital: Capital.getCalculatedCapital() };
+  },
+  exportCSV() {
+    const now = new Date(); const d = this.getMonthData(now.getFullYear(), now.getMonth());
+    const rows = [['البند','القيمة'],['المبيعات',d.sales],['تكلفة المبيعات',d.cogs],['إجمالي الربح',d.grossProfit],['المصروفات',d.expenses],['صافي الربح',d.netProfit],['النقد',d.cash],['المخزون',d.inventory],['ديون العملاء',d.receivables],['ديون الموردين',d.payables],['رأس المال',d.capital]];
+    const csv = rows.map(r => r.join(',')).join('\n');
+    const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'تقرير_' + now.toLocaleDateString('ar-SA') + '.csv'; a.click();
+    Utils.toast('تم التصدير', 'success');
+  }
+};
+
+/* =====================================================================
+   ███████ ██ ███    ███ ██  █████   ██████  ██████  ██
+   ██      ██ ████  ████ ██ ██   ██ ██      ██    ██ ██
+   ███████ ██ ██ ████ ██ ██ ███████ ██      ██    ██ ██
+        ██ ██ ██  ██  ██ ██ ██   ██ ██      ██    ██ ██
+   ███████ ██ ██      ██ ██ ██   ██  ██████  ██████  ███████
+   ===================================================================== */
+const Simulator = {
+  render() {
+    document.getElementById('pageContent').innerHTML = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-flask"></i> ماذا يحدث لو؟ — محاكاة القرارات</div></div><div class="alert alert-warning"><i class="fas fa-info-circle"></i> هذه محاكاة تقديرية بناءً على البيانات الحالية. النتائج الفعلية قد تختلف.</div><div class="form-row"><div class="form-group"><label>نوع المحاكاة</label><select id="simType" class="form-control" onchange="Simulator.updateFields()"><option value="sales">زيادة/نقصان المبيعات</option><option value="expenses">خفض/رفع المصروفات</option><option value="price">رفع/خفض سعر منتج</option><option value="invest">استثمار مبلغ في المخزون</option></select></div><div class="form-group"><label>النسبة / المبلغ</label><input type="number" id="simValue" class="form-control" value="10" step="0.1"></div></div><div id="simExtraFields"></div><button class="btn btn-primary" onclick="Simulator.run()"><i class="fas fa-play"></i> تشغيل المحاكاة</button><div id="simResult" class="mt-20"></div></div>';
+  },
+  updateFields() {
+    const type = document.getElementById('simType').value;
+    const container = document.getElementById('simExtraFields');
+    if (type === 'price') {
+      const opts = Products.getAll().map(p => '<option value="' + p.id + '">' + Utils.escapeHtml(p.name) + '</option>').join('');
+      container.innerHTML = '<div class="form-group"><label>اختر المنتج</label><select id="simProduct" class="form-control">' + opts + '</select></div>';
+    } else container.innerHTML = '';
+  },
+  run() {
+    const type = document.getElementById('simType').value; const value = parseFloat(document.getElementById('simValue').value);
+    const cS = Sales.getTotalSales(); const cC = Sales.getTotalCogs(); const cE = Expenses.getTotal();
+    let nS = cS, nC = cC, nE = cE, desc = '';
+    if (type === 'sales') { const f = 1 + value / 100; nS = cS * f; nC = cC * f; desc = 'إذا ' + (value > 0 ? 'زادت' : 'انخفضت') + ' المبيعات ' + Math.abs(value) + '%'; }
+    else if (type === 'expenses') { nE = cE * (1 + value / 100); desc = 'إذا ' + (value > 0 ? 'ارتفعت' : 'انخفضت') + ' المصروفات ' + Math.abs(value) + '%'; }
+    else if (type === 'price') { const pid = document.getElementById('simProduct').value; const p = Products.getById(pid); if (!p) { Utils.toast('اختر منتجاً', 'error'); return; } const f = 1 + value / 100; nS = cS + (p.sellingPrice * f - p.sellingPrice) * p.totalSold; desc = 'إذا تغير سعر "' + p.name + '" ' + (value > 0 ? 'بالزيادة' : 'بالنقصان') + ' ' + Math.abs(value) + '%'; }
+    else { desc = 'إذا استثمرت ' + Utils.formatMoney(value) + ' في المخزون'; }
+    const nG = nS - nC; const nN = nG - nE; const sD = nS - cS; const nD = nN - (cS - cC - cE);
+    document.getElementById('simResult').innerHTML = '<div class="card" style="background:linear-gradient(135deg,#FFF5F8,#F8BBD0);"><h4 style="color:var(--orchid-dark);margin-bottom:15px;">🔮 نتيجة المحاكاة</h4><p><strong>' + desc + '</strong></p><table class="mt-10"><thead><tr><th>البند</th><th>الحالي</th><th>بعد التغيير</th><th>الفرق</th></tr></thead><tbody><tr><td>المبيعات</td><td>' + Utils.formatMoney(cS) + '</td><td>' + Utils.formatMoney(nS) + '</td><td class="' + (sD >= 0 ? 'text-success' : 'text-danger') + '">' + (sD >= 0 ? '+' : '') + Utils.formatMoney(sD) + '</td></tr><tr><td>المصروفات</td><td>' + Utils.formatMoney(cE) + '</td><td>' + Utils.formatMoney(nE) + '</td><td>' + Utils.formatMoney(nE - cE) + '</td></tr><tr style="font-weight:700;background:#fff;"><td>صافي الربح</td><td>' + Utils.formatMoney(cS - cC - cE) + '</td><td>' + Utils.formatMoney(nN) + '</td><td class="' + (nD >= 0 ? 'text-success' : 'text-danger') + '">' + (nD >= 0 ? '+' : '') + Utils.formatMoney(nD) + '</td></tr></tbody></table><p class="mt-10 text-muted" style="font-size:12px;">⚠️ هذه تقديرات. الواقع يعتمد على عوامل متعددة.</p></div>';
+  }
+};
+
+/* =====================================================================
+   ███████ ███████ ████████ ████████ ██ ███    ██  ██████  ███████
+   ██      ██         ██       ██    ██ ████   ██ ██       ██
+   ███████ █████      ██       ██    ██ ██ ██  ██ ██   ███ ███████
+        ██ ██         ██       ██    ██ ██  ██ ██ ██    ██      ██
+   ███████ ███████    ██       ██    ██ ██   ████  ██████  ███████
+   ===================================================================== */
+const Settings = {
+  render() {
+    const s = DB.data.settings;
+    document.getElementById('pageContent').innerHTML =
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-store"></i> إعدادات المتجر</div></div>' +
+      '<div class="form-row"><div class="form-group"><label>اسم المتجر</label><input type="text" id="storeName" class="form-control" value="' + Utils.escapeHtml(s.storeName) + '"></div><div class="form-group"><label>العملة</label><input type="text" id="currency" class="form-control" value="' + Utils.escapeHtml(s.currency) + '"></div></div>' +
+      '<div class="form-row"><div class="form-group"><label>الحد الأدنى للتنبيه (مخزون)</label><input type="number" id="lowStockAlert" class="form-control" value="' + s.lowStockAlert + '"></div><div class="form-group"><label>مدة السداد (أيام)</label><input type="number" id="overdueDays" class="form-control" value="' + s.overdueDays + '"></div></div>' +
+      '<button class="btn btn-primary" onclick="Settings.save()"><i class="fas fa-save"></i> حفظ</button></div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-database"></i> النسخ الاحتياطي</div></div>' +
+      '<div class="flex gap-10" style="flex-wrap:wrap;"><button class="btn btn-success" onclick="Settings.backup()"><i class="fas fa-download"></i> تصدير نسخة</button><button class="btn btn-warning" onclick="document.getElementById(\'importFile\').click()"><i class="fas fa-upload"></i> استيراد نسخة</button><input type="file" id="importFile" accept=".json" style="display:none" onchange="Settings.restore(event)"><button class="btn btn-danger" onclick="DB.reset()"><i class="fas fa-trash"></i> حذف جميع البيانات</button></div></div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-history"></i> سجل العمليات (Audit Log)</div></div><div class="table-container"><table><thead><tr><th>التاريخ</th><th>المستخدم</th><th>الإجراء</th><th>التفاصيل</th></tr></thead><tbody>' +
+      (DB.data.auditLog.slice(0, 50).map(log => '<tr><td>' + Utils.formatDateTime(log.timestamp) + '</td><td>' + Utils.escapeHtml(log.user) + '</td><td><span class="badge badge-info">' + Utils.escapeHtml(log.action) + '</span></td><td style="font-size:11px;">' + Utils.escapeHtml(JSON.stringify(log.details)) + '</td></tr>').join('') || '<tr><td colspan="4" class="text-center text-muted">لا توجد عمليات</td></tr>') +
+      '</tbody></table></div></div>';
+  },
+  save() {
+    DB.data.settings.storeName = document.getElementById('storeName').value;
+    DB.data.settings.currency = document.getElementById('currency').value;
+    DB.data.settings.lowStockAlert = Number(document.getElementById('lowStockAlert').value);
+    DB.data.settings.overdueDays = Number(document.getElementById('overdueDays').value);
+    DB.save(); Utils.toast('تم حفظ الإعدادات', 'success');
+  },
+  backup() {
+    const blob = new Blob([DB.exportData()], { type: 'application/json' });
+    const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = 'orchid_backup_' + new Date().toISOString().split('T')[0] + '.json'; a.click();
+    Utils.toast('تم تحميل النسخة الاحتياطية', 'success');
+  },
+  restore(event) {
+    const file = event.target.files[0]; if (!file) return;
+    if (!confirm('⚠️ سيتم استبدال جميع البيانات الحالية. متابعة؟')) return;
+    const reader = new FileReader();
+    reader.onload = e => { if (DB.importData(e.target.result)) { Utils.toast('تم الاستعادة بنجاح', 'success'); setTimeout(() => location.reload(), 1000); } else Utils.toast('فشل الاستيراد', 'error'); };
+    reader.readAsText(file);
+  }
+};
+
+/* =====================================================================
+    █████  ██████  ██████
+   ██   ██ ██   ██ ██   ██
+   ███████ ██████  ██████
+   ██   ██ ██      ██
+   ██   ██ ██      ██
+   ===================================================================== */
+const App = {
+  currentPage: 'dashboard',
+  pages: {
+    dashboard: { title: 'لوحة التحكم', render: () => Dashboard.render() },
+    sales: { title: 'المبيعات', render: () => SalesUI.render() },
+    purchases: { title: 'المشتريات', render: () => PurchasesUI.render() },
+    products: { title: 'المنتجات', render: () => ProductsUI.render() },
+    inventory: { title: 'المخزون', render: () => InventoryUI.render() },
+    customers: { title: 'العملاء', render: () => CustomersUI.render() },
+    debts: { title: 'ديون العملاء', render: () => DebtsUI.render() },
+    suppliers: { title: 'الموردون', render: () => SuppliersUI.render() },
+    expenses: { title: 'المصروفات', render: () => ExpensesUI.render() },
+    capital: { title: 'رأس المال', render: () => CapitalUI.render() },
+    profits: { title: 'الأرباح', render: () => ProfitsUI.render() },
+    cashflow: { title: 'التدفق النقدي', render: () => CashflowUI.render() },
+    ai: { title: 'المحلل المالي الذكي', render: () => AIUI.render() },
+    reports: { title: 'التقارير', render: () => Reports.render() },
+    simulator: { title: 'محاكاة القرارات', render: () => Simulator.render() },
+    settings: { title: 'الإعدادات', render: () => Settings.render() }
+  },
+  init() {
+    Auth.init();
+    document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', e => { e.preventDefault(); this.navigate(link.dataset.page); }));
+    document.getElementById('menuToggle').addEventListener('click', () => document.getElementById('sidebar').classList.toggle('open'));
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString('ar-SA', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+    this.navigate('dashboard');
+    if (DB.data.products.length === 0) setTimeout(() => Utils.toast('مرحباً! ابدأ بإضافة منتجاتك من قائمة "المنتجات"', 'success'), 1000);
+  },
+  navigate(page) {
+    if (!this.pages[page]) page = 'dashboard';
+    this.currentPage = page;
+    document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+    const active = document.querySelector('.nav-link[data-page="' + page + '"]');
+    if (active) active.classList.add('active');
+    document.getElementById('pageTitle').textContent = this.pages[page].title;
+    this.pages[page].render();
+    document.getElementById('sidebar').classList.remove('open');
+    window.scrollTo(0, 0);
+  }
+};
+
+/* =====================================================================
+   ██ ████████     ██    ██ ██
+   ██    ██        ██    ██ ██
+   ██    ██        ██    ██ ██
+   ██    ██        ██    ██ ██
+   ██    ██         ██████  ██
+   ===================================================================== */
+
+// ===== المنتجات =====
+const ProductsUI = {
+  render() {
+    const products = Products.getAll();
+    const categories = DB.data.categories;
+    const cls = Products.classify();
+    const renderList = items => items.length === 0 ? '<li>لا يوجد</li>' : items.slice(0, 5).map(i => '<li>' + Utils.escapeHtml(i.product.name) + ' — ' + Utils.formatMoney(i.product.totalSold * (i.product.sellingPrice - i.product.avgCost)) + ' ربح</li>').join('');
+
+    let html = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-boxes"></i> المنتجات (' + products.length + ')</div><button class="btn btn-primary" onclick="ProductsUI.showForm()"><i class="fas fa-plus"></i> إضافة منتج</button></div>';
+    if (products.length === 0) html += '<div class="empty-state"><i class="fas fa-box-open"></i><p>لا توجد منتجات. ابدأ بإضافة منتجك الأول.</p></div>';
+    else {
+      html += '<div class="table-container"><table><thead><tr><th>الاسم</th><th>القسم</th><th>الكمية</th><th>متوسط التكلفة</th><th>سعر البيع</th><th>الهامش</th><th>المورد</th><th>إجراءات</th></tr></thead><tbody>';
+      products.forEach(p => {
+        const margin = p.sellingPrice > 0 ? ((p.sellingPrice - p.avgCost) / p.sellingPrice * 100) : 0;
+        const sc = p.quantity <= p.minStock ? 'badge-danger' : 'badge-success';
+        html += '<tr><td><strong>' + Utils.escapeHtml(p.name) + '</strong></td><td>' + Utils.escapeHtml(p.category) + '</td><td><span class="badge ' + sc + '">' + p.quantity + '</span></td><td>' + Utils.formatMoney(p.avgCost) + '</td><td>' + Utils.formatMoney(p.sellingPrice) + '</td><td class="text-success">' + margin.toFixed(1) + '%</td><td>' + Utils.escapeHtml(p.supplier || '-') + '</td><td><button class="btn btn-sm btn-primary btn-icon-action" onclick="ProductsUI.showForm(\'' + p.id + '\')"><i class="fas fa-edit"></i></button> <button class="btn btn-sm btn-danger btn-icon-action" onclick="Products.delete(\'' + p.id + '\');ProductsUI.render();"><i class="fas fa-trash"></i></button></td></tr>';
+      });
+      html += '</tbody></table></div>';
+    }
+    html += '</div><div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-th-large"></i> تصنيف المنتجات (ABCD)</div></div><div class="classification-grid">' +
+      '<div class="class-card class-A"><h3>A</h3><p>ممتاز</p><ul>' + renderList(cls.A) + '</ul></div>' +
+      '<div class="class-card class-B"><h3>B</h3><p>جيد</p><ul>' + renderList(cls.B) + '</ul></div>' +
+      '<div class="class-card class-C"><h3>C</h3><p>ضعيف</p><ul>' + renderList(cls.C) + '</ul></div>' +
+      '<div class="class-card class-D"><h3>D</h3><p>راكد</p><ul>' + renderList(cls.D) + '</ul></div></div></div>';
+    document.getElementById('pageContent').innerHTML = html;
+  },
+  showForm(id) {
+    id = id || null;
+    const p = id ? Products.getById(id) : null;
+    const cats = DB.data.categories.map(c => '<option value="' + c + '"' + (p && p.category === c ? ' selected' : '') + '>' + c + '</option>').join('');
+    const sups = DB.data.suppliers.map(s => '<option value="' + Utils.escapeHtml(s.name) + '"' + (p && p.supplier === s.name ? ' selected' : '') + '>' + Utils.escapeHtml(s.name) + '</option>').join('');
+    Modal.open(p ? 'تعديل منتج' : 'إضافة منتج',
+      '<form id="productForm"><div class="form-row"><div class="form-group"><label>اسم المنتج *</label><input type="text" name="name" class="form-control" required value="' + (p ? Utils.escapeHtml(p.name) : '') + '"></div><div class="form-group"><label>القسم *</label><select name="category" class="form-control" required>' + cats + '</select></div></div><div class="form-row"><div class="form-group"><label>الكمية *</label><input type="number" name="quantity" class="form-control" required min="0" value="' + (p ? p.quantity : 0) + '"></div><div class="form-group"><label>سعر الشراء *</label><input type="number" name="purchasePrice" class="form-control" required min="0" step="0.01" value="' + (p ? p.purchasePrice : 0) + '"></div></div><div class="form-row"><div class="form-group"><label>سعر البيع *</label><input type="number" name="sellingPrice" class="form-control" required min="0" step="0.01" value="' + (p ? p.sellingPrice : 0) + '"></div><div class="form-group"><label>الحد الأدنى</label><input type="number" name="minStock" class="form-control" min="0" value="' + (p ? p.minStock : 5) + '"></div></div><div class="form-group"><label>المورد</label><select name="supplier" class="form-control"><option value="">-- اختر --</option>' + sups + '</select></div></form>',
+      '<button class="btn btn-primary" onclick="ProductsUI.save(\'' + (id || '') + '\')">' + (p ? 'تحديث' : 'إضافة') + '</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+  },
+  save(id) {
+    const data = Object.fromEntries(new FormData(document.getElementById('productForm')));
+    if (!data.name || !data.category) { Utils.toast('أكمل الحقول المطلوبة', 'error'); return; }
+    if (id) { Products.update(id, data); Utils.toast('تم تحديث المنتج', 'success'); }
+    else { Products.add(data); Utils.toast('تم إضافة المنتج', 'success'); }
+    Modal.close(); this.render();
+  }
+};
+
+// ===== المخزون =====
+const InventoryUI = {
+  render() {
+    const products = Products.getAll();
+    const lowStock = products.filter(p => p.quantity <= p.minStock);
+    const outOfStock = products.filter(p => p.quantity === 0);
+    let html = '<div class="stats-grid"><div class="stat-card"><div class="stat-label">إجمالي المنتجات</div><div class="stat-value">' + products.length + '</div></div><div class="stat-card green"><div class="stat-label">قيمة المخزون (تكلفة)</div><div class="stat-value">' + Utils.formatMoney(Products.getInventoryValue()) + '</div></div><div class="stat-card gold"><div class="stat-label">قيمة المخزون (بيع)</div><div class="stat-value">' + Utils.formatMoney(Products.getInventorySellingValue()) + '</div></div><div class="stat-card red"><div class="stat-label">نفاد المخزون</div><div class="stat-value">' + outOfStock.length + '</div></div></div>';
+    html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-exclamation-triangle text-warning"></i> تنبيهات المخزون (' + lowStock.length + ')</div></div>' + (lowStock.length === 0 ? '<p class="text-success">✅ جميع المنتجات بكميات جيدة.</p>' : '<div class="table-container"><table><thead><tr><th>المنتج</th><th>الكمية</th><th>الحد الأدنى</th><th>الحالة</th></tr></thead><tbody>' + lowStock.map(p => '<tr><td>' + Utils.escapeHtml(p.name) + '</td><td>' + p.quantity + '</td><td>' + p.minStock + '</td><td><span class="badge ' + (p.quantity === 0 ? 'badge-danger' : 'badge-warning') + '">' + (p.quantity === 0 ? 'نفد' : 'منخفض') + '</span></td></tr>').join('') + '</tbody></table></div>') + '</div>';
+    html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-list"></i> جميع المنتجات</div></div><div class="table-container"><table><thead><tr><th>المنتج</th><th>القسم</th><th>الكمية</th><th>متوسط التكلفة</th><th>الإجمالي</th></tr></thead><tbody>' + (products.map(p => '<tr><td>' + Utils.escapeHtml(p.name) + '</td><td>' + Utils.escapeHtml(p.category) + '</td><td>' + p.quantity + '</td><td>' + Utils.formatMoney(p.avgCost) + '</td><td>' + Utils.formatMoney(p.quantity * p.avgCost) + '</td></tr>').join('') || '<tr><td colspan="5" class="text-center text-muted">لا توجد منتجات</td></tr>') + '</tbody></table></div></div>';
+    document.getElementById('pageContent').innerHTML = html;
+  }
+};
+
+// ===== المبيعات =====
+const SalesUI = {
+  render() {
+    const sales = Sales.getAll();
+    let html = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-cash-register"></i> المبيعات (' + sales.length + ')</div><button class="btn btn-primary" onclick="SalesUI.showInvoice()"><i class="fas fa-plus"></i> فاتورة جديدة</button></div>';
+    if (sales.length === 0) html += '<div class="empty-state"><i class="fas fa-receipt"></i><p>لا توجد مبيعات</p></div>';
+    else {
+      html += '<div class="table-container"><table><thead><tr><th>التاريخ</th><th>العميل</th><th>الإجمالي</th><th>المدفوع</th><th>المتبقي</th><th>الحالة</th><th>طريقة الدفع</th></tr></thead><tbody>';
+      sales.forEach(s => { html += '<tr><td>' + Utils.formatDate(s.date) + '</td><td>' + Utils.escapeHtml(s.customerName) + '</td><td>' + Utils.formatMoney(s.subtotal) + '</td><td>' + Utils.formatMoney(s.paid) + '</td><td>' + Utils.formatMoney(s.remaining) + '</td><td><span class="badge ' + (s.status === 'مدفوع' ? 'badge-success' : 'badge-warning') + '">' + s.status + '</span></td><td>' + s.paymentMethod + '</td></tr>'; });
+      html += '</tbody></table></div>';
+    }
+    html += '</div>';
+    document.getElementById('pageContent').innerHTML = html;
+  },
+  showInvoice() {
+    const custs = DB.data.customers.map(c => '<option value="' + c.id + '">' + Utils.escapeHtml(c.name) + '</option>').join('');
+    const prods = DB.data.products.map(p => '<option value="' + p.id + '" data-price="' + p.sellingPrice + '" data-stock="' + p.quantity + '">' + Utils.escapeHtml(p.name) + ' — ' + Utils.formatMoney(p.sellingPrice) + ' (متاح: ' + p.quantity + ')</option>').join('');
+    Modal.open('فاتورة بيع جديدة',
+      '<form id="invoiceForm"><div class="form-row"><div class="form-group"><label>العميل</label><select name="customerId" class="form-control"><option value="">عميل نقدي</option>' + custs + '</select></div><div class="form-group"><label>طريقة الدفع</label><select name="paymentMethod" class="form-control"><option value="نقد">نقد</option><option value="آجل">آجل</option><option value="تحويل">تحويل</option><option value="بطاقة">بطاقة</option></select></div></div><h4 style="margin:15px 0 10px;color:var(--orchid-dark);">المنتجات</h4><div id="invoiceItems"></div><button type="button" class="btn btn-sm btn-gold mt-10" onclick="SalesUI.addItem()"><i class="fas fa-plus"></i> إضافة منتج</button><div class="form-row mt-20"><div class="form-group"><label>الإجمالي</label><input type="text" id="invoiceTotal" class="form-control" readonly value="0 ريال"></div><div class="form-group"><label>المدفوع</label><input type="number" name="paid" id="invoicePaid" class="form-control" min="0" step="0.01" value="0" oninput="SalesUI.calcRemaining()"></div></div><div class="form-group"><label>المتبقي</label><input type="text" id="invoiceRemaining" class="form-control" readonly value="0 ريال"></div><div class="form-group"><label>ملاحظات</label><textarea name="notes" class="form-control"></textarea></div></form>',
+      '<button class="btn btn-primary" onclick="SalesUI.saveInvoice()"><i class="fas fa-save"></i> حفظ الفاتورة</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+    this.addItem();
+  },
+  addItem() {
+    const prods = DB.data.products.map(p => '<option value="' + p.id + '" data-price="' + p.sellingPrice + '">' + Utils.escapeHtml(p.name) + ' — ' + Utils.formatMoney(p.sellingPrice) + ' (متاح: ' + p.quantity + ')</option>').join('');
+    const container = document.getElementById('invoiceItems');
+    const div = document.createElement('div');
+    div.className = 'form-row mb-10'; div.style.gridTemplateColumns = '2fr 1fr 1fr 1fr auto';
+    div.innerHTML = '<select class="form-control item-product" onchange="SalesUI.calcTotal()"><option value="">-- اختر منتج --</option>' + prods + '</select><input type="number" class="form-control item-qty" placeholder="الكمية" min="1" value="1" oninput="SalesUI.calcTotal()"><input type="number" class="form-control item-price" placeholder="السعر" min="0" step="0.01" oninput="SalesUI.calcTotal()"><input type="number" class="form-control item-discount" placeholder="خصم" min="0" value="0" oninput="SalesUI.calcTotal()"><button type="button" class="btn btn-sm btn-danger btn-icon-action" onclick="this.parentElement.remove();SalesUI.calcTotal();"><i class="fas fa-times"></i></button>';
+    container.appendChild(div);
+    div.querySelector('.item-product').addEventListener('change', function() { const opt = this.options[this.selectedIndex]; if (opt.dataset.price) div.querySelector('.item-price').value = opt.dataset.price; SalesUI.calcTotal(); });
+  },
+  calcTotal() {
+    let total = 0;
+    document.querySelectorAll('#invoiceItems > div').forEach(row => { total += ((parseFloat(row.querySelector('.item-qty').value) || 0) * (parseFloat(row.querySelector('.item-price').value) || 0)) - (parseFloat(row.querySelector('.item-discount').value) || 0); });
+    document.getElementById('invoiceTotal').value = Utils.formatMoney(total); this.calcRemaining();
+  },
+  calcRemaining() {
+    const total = parseFloat(document.getElementById('invoiceTotal').value.replace(' ريال', '').replace(/,/g, '')) || 0;
+    const paid = parseFloat(document.getElementById('invoicePaid').value) || 0;
+    document.getElementById('invoiceRemaining').value = Utils.formatMoney(total - paid);
+  },
+  saveInvoice() {
+    const data = Object.fromEntries(new FormData(document.getElementById('invoiceForm')));
+    const items = []; let valid = true;
+    document.querySelectorAll('#invoiceItems > div').forEach(row => {
+      const pid = row.querySelector('.item-product').value; const qty = parseFloat(row.querySelector('.item-qty').value) || 0; const price = parseFloat(row.querySelector('.item-price').value) || 0; const discount = parseFloat(row.querySelector('.item-discount').value) || 0;
+      if (!pid || qty <= 0 || price <= 0) { valid = false; return; }
+      items.push({ productId: pid, qty, price, discount });
+    });
+    if (!valid || items.length === 0) { Utils.toast('أكمل بيانات المنتجات بشكل صحيح', 'error'); return; }
+    try { Sales.create({ customerId: data.customerId || null, items, paymentMethod: data.paymentMethod, paid: data.paid, notes: data.notes }); Utils.toast('تم حفظ الفاتورة', 'success'); Modal.close(); this.render(); } catch (e) { Utils.toast(e.message, 'error'); }
+  }
+};
+
+// ===== المشتريات =====
+const PurchasesUI = {
+  render() {
+    const purchases = Purchases.getAll();
+    let html = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-shopping-cart"></i> المشتريات (' + purchases.length + ')</div><button class="btn btn-primary" onclick="PurchasesUI.showForm()"><i class="fas fa-plus"></i> فاتورة شراء</button></div>';
+    if (purchases.length === 0) html += '<div class="empty-state"><i class="fas fa-shopping-cart"></i><p>لا توجد مشتريات</p></div>';
+    else {
+      html += '<div class="table-container"><table><thead><tr><th>التاريخ</th><th>المورد</th><th>الإجمالي</th><th>المدفوع</th><th>المتبقي</th><th>الحالة</th></tr></thead><tbody>';
+      purchases.forEach(p => { html += '<tr><td>' + Utils.formatDate(p.date) + '</td><td>' + Utils.escapeHtml(p.supplierName) + '</td><td>' + Utils.formatMoney(p.total) + '</td><td>' + Utils.formatMoney(p.paid) + '</td><td>' + Utils.formatMoney(p.remaining) + '</td><td><span class="badge ' + (p.status === 'مدفوع' ? 'badge-success' : 'badge-warning') + '">' + p.status + '</span></td></tr>'; });
+      html += '</tbody></table></div>';
+    }
+    html += '</div>';
+    document.getElementById('pageContent').innerHTML = html;
+  },
+  showForm() {
+    const sups = DB.data.suppliers.map(s => '<option value="' + s.id + '">' + Utils.escapeHtml(s.name) + '</option>').join('');
+    const prods = DB.data.products.map(p => '<option value="' + p.id + '">' + Utils.escapeHtml(p.name) + '</option>').join('');
+    Modal.open('فاتورة شراء جديدة',
+      '<form id="purchaseForm"><div class="form-row"><div class="form-group"><label>المورد</label><select name="supplierId" class="form-control"><option value="">-- اختر --</option>' + sups + '</select></div><div class="form-group"><label>المدفوع</label><input type="number" name="paid" class="form-control" min="0" step="0.01" value="0"></div></div><h4 style="margin:15px 0 10px;color:var(--orchid-dark);">المنتجات</h4><div id="purchaseItems"></div><button type="button" class="btn btn-sm btn-gold mt-10" onclick="PurchasesUI.addItem()"><i class="fas fa-plus"></i> إضافة منتج</button><div class="form-group mt-20"><label>الإجمالي</label><input type="text" id="purchaseTotal" class="form-control" readonly value="0 ريال"></div><div class="form-group"><label>ملاحظات</label><textarea name="notes" class="form-control"></textarea></div></form>',
+      '<button class="btn btn-primary" onclick="PurchasesUI.save()"><i class="fas fa-save"></i> حفظ</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+    this.addItem();
+  },
+  addItem() {
+    const prods = DB.data.products.map(p => '<option value="' + p.id + '">' + Utils.escapeHtml(p.name) + '</option>').join('');
+    const container = document.getElementById('purchaseItems');
+    const div = document.createElement('div'); div.className = 'form-row mb-10'; div.style.gridTemplateColumns = '2fr 1fr 1fr auto';
+    div.innerHTML = '<select class="form-control p-product"><option value="">-- اختر --</option>' + prods + '</select><input type="number" class="form-control p-qty" placeholder="الكمية" min="1" value="1"><input type="number" class="form-control p-price" placeholder="سعر الشراء" min="0" step="0.01"><button type="button" class="btn btn-sm btn-danger btn-icon-action" onclick="this.parentElement.remove();PurchasesUI.calcTotal();"><i class="fas fa-times"></i></button>';
+    container.appendChild(div);
+    div.querySelectorAll('input').forEach(i => i.addEventListener('input', () => this.calcTotal()));
+  },
+  calcTotal() {
+    let total = 0;
+    document.querySelectorAll('#purchaseItems > div').forEach(row => { total += (parseFloat(row.querySelector('.p-qty').value) || 0) * (parseFloat(row.querySelector('.p-price').value) || 0); });
+    document.getElementById('purchaseTotal').value = Utils.formatMoney(total);
+  },
+  save() {
+    const data = Object.fromEntries(new FormData(document.getElementById('purchaseForm')));
+    const items = []; let valid = true;
+    document.querySelectorAll('#purchaseItems > div').forEach(row => {
+      const pid = row.querySelector('.p-product').value; const qty = parseFloat(row.querySelector('.p-qty').value) || 0; const price = parseFloat(row.querySelector('.p-price').value) || 0;
+      if (!pid || qty <= 0 || price <= 0) { valid = false; return; }
+      items.push({ productId: pid, qty, price });
+    });
+    if (!valid || items.length === 0) { Utils.toast('أكمل البيانات', 'error'); return; }
+    try { Purchases.create({ supplierId: data.supplierId || null, items, paid: data.paid, notes: data.notes }); Utils.toast('تم حفظ الفاتورة', 'success'); Modal.close(); this.render(); } catch (e) { Utils.toast(e.message, 'error'); }
+  }
+};
+
+// ===== العملاء =====
+const CustomersUI = {
+  render() {
+    const customers = Customers.getAll();
+    let html = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-users"></i> العملاء (' + customers.length + ')</div><button class="btn btn-primary" onclick="CustomersUI.showForm()"><i class="fas fa-plus"></i> إضافة عميل</button></div>';
+    if (customers.length === 0) html += '<div class="empty-state"><i class="fas fa-users"></i><p>لا يوجد عملاء</p></div>';
+    else {
+      html += '<div class="table-container"><table><thead><tr><th>الاسم</th><th>الهاتف</th><th>المشتريات</th><th>المدفوع</th><th>الرصيد</th><th>آخر عملية</th><th>إجراءات</th></tr></thead><tbody>';
+      customers.forEach(c => { html += '<tr><td><strong>' + Utils.escapeHtml(c.name) + '</strong></td><td>' + Utils.escapeHtml(c.phone || '-') + '</td><td>' + Utils.formatMoney(c.totalPurchases) + '</td><td>' + Utils.formatMoney(c.totalPaid) + '</td><td class="' + (c.balance > 0 ? 'text-danger' : 'text-success') + '"><strong>' + Utils.formatMoney(c.balance) + '</strong></td><td>' + Utils.formatDate(c.lastPurchase || c.lastPayment) + '</td><td><button class="btn btn-sm btn-primary btn-icon-action" onclick="CustomersUI.showForm(\'' + c.id + '\')"><i class="fas fa-edit"></i></button> <button class="btn btn-sm btn-success btn-icon-action" onclick="CustomersUI.collect(\'' + c.id + '\')"><i class="fas fa-hand-holding-usd"></i></button> <button class="btn btn-sm btn-danger btn-icon-action" onclick="Customers.delete(\'' + c.id + '\');CustomersUI.render();"><i class="fas fa-trash"></i></button></td></tr>'; });
+      html += '</tbody></table></div>';
+    }
+    html += '</div>'; document.getElementById('pageContent').innerHTML = html;
+  },
+  showForm(id) {
+    id = id || null; const c = id ? Customers.getById(id) : null;
+    Modal.open(c ? 'تعديل عميل' : 'إضافة عميل',
+      '<form id="customerForm"><div class="form-group"><label>الاسم *</label><input type="text" name="name" class="form-control" required value="' + (c ? Utils.escapeHtml(c.name) : '') + '"></div><div class="form-group"><label>الهاتف</label><input type="text" name="phone" class="form-control" value="' + (c ? Utils.escapeHtml(c.phone) : '') + '"></div><div class="form-group"><label>العنوان</label><input type="text" name="address" class="form-control" value="' + (c ? Utils.escapeHtml(c.address) : '') + '"></div><div class="form-group"><label>ملاحظات</label><textarea name="notes" class="form-control">' + (c ? Utils.escapeHtml(c.notes) : '') + '</textarea></div></form>',
+      '<button class="btn btn-primary" onclick="CustomersUI.save(\'' + (id || '') + '\')">' + (c ? 'تحديث' : 'إضافة') + '</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+  },
+  save(id) {
+    const data = Object.fromEntries(new FormData(document.getElementById('customerForm')));
+    if (!data.name) { Utils.toast('الاسم مطلوب', 'error'); return; }
+    if (id) { Customers.update(id, data); Utils.toast('تم التحديث', 'success'); } else { Customers.add(data); Utils.toast('تمت الإضافة', 'success'); }
+    Modal.close(); this.render();
+  },
+  collect(id) {
+    const c = Customers.getById(id);
+    if (!c || c.balance <= 0) { Utils.toast('لا يوجد رصيد للتحصيل', 'warning'); return; }
+    Modal.open('تحصيل دفعة',
+      '<p>العميل: <strong>' + Utils.escapeHtml(c.name) + '</strong></p><p>الرصيد الحالي: <strong class="text-danger">' + Utils.formatMoney(c.balance) + '</strong></p><div class="form-group mt-20"><label>مبلغ التحصيل</label><input type="number" id="collectAmount" class="form-control" min="0" max="' + c.balance + '" step="0.01"></div><div class="form-group"><label>ملاحظات</label><input type="text" id="collectNotes" class="form-control"></div>',
+      '<button class="btn btn-success" onclick="CustomersUI.doCollect(\'' + id + '\')"><i class="fas fa-check"></i> تحصيل</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+  },
+  doCollect(id) {
+    const res = Customers.collectPayment(id, parseFloat(document.getElementById('collectAmount').value), document.getElementById('collectNotes').value);
+    if (res.ok) { Utils.toast('تم التحصيل', 'success'); Modal.close(); this.render(); } else Utils.toast(res.msg, 'error');
+  }
+};
+
+// ===== ديون العملاء =====
+const DebtsUI = {
+  render() {
+    const debtors = Customers.getTopDebtors(100);
+    const overdue = Customers.getOverdue(DB.data.settings.overdueDays);
+    const total = Customers.getTotalDebts();
+    let html = '<div class="stats-grid"><div class="stat-card orange"><div class="stat-label">إجمالي الديون</div><div class="stat-value">' + Utils.formatMoney(total) + '</div></div><div class="stat-card red"><div class="stat-label">عملاء متأخرون</div><div class="stat-value">' + overdue.length + '</div></div><div class="stat-card"><div class="stat-label">عملاء عليهم ديون</div><div class="stat-value">' + debtors.length + '</div></div></div>';
+    html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-hand-holding-usd"></i> كشف حسابات العملاء</div></div>';
+    if (debtors.length === 0) html += '<div class="empty-state"><i class="fas fa-check-circle"></i><p>لا توجد ديون</p></div>';
+    else {
+      html += '<div class="table-container"><table><thead><tr><th>العميل</th><th>الهاتف</th><th>المشتريات</th><th>المدفوع</th><th>الرصيد</th><th>آخر شراء</th><th>إجراءات</th></tr></thead><tbody>';
+      debtors.forEach(c => {
+        const isO = overdue.some(o => o.id === c.id);
+        html += '<tr><td><strong>' + Utils.escapeHtml(c.name) + '</strong> ' + (isO ? '<span class="badge badge-danger">متأخر</span>' : '') + '</td><td>' + Utils.escapeHtml(c.phone || '-') + '</td><td>' + Utils.formatMoney(c.totalPurchases) + '</td><td>' + Utils.formatMoney(c.totalPaid) + '</td><td class="text-danger"><strong>' + Utils.formatMoney(c.balance) + '</strong></td><td>' + Utils.formatDate(c.lastPurchase) + '</td><td><button class="btn btn-sm btn-success" onclick="CustomersUI.collect(\'' + c.id + '\')"><i class="fas fa-hand-holding-usd"></i> تحصيل</button> <button class="btn btn-sm btn-primary" onclick="DebtsUI.showStatement(\'' + c.id + '\')"><i class="fas fa-file"></i> كشف حساب</button></td></tr>';
+      });
+      html += '</tbody></table></div>';
+    }
+    html += '</div>'; document.getElementById('pageContent').innerHTML = html;
+  },
+  showStatement(id) {
+    const c = Customers.getById(id); if (!c) return;
+    const txns = c.transactions.map(t => '<tr><td>' + Utils.formatDate(t.date) + '</td><td>' + (t.type === 'debt' ? '<span class="badge badge-danger">فاتورة</span>' : '<span class="badge badge-success">تحصيل</span>') + '</td><td>' + Utils.escapeHtml(t.description || '') + '</td><td class="' + (t.type === 'debt' ? 'text-danger' : 'text-success') + '">' + (t.type === 'debt' ? '+' : '-') + Utils.formatMoney(t.amount) + '</td></tr>').join('');
+    Modal.open('كشف حساب العميل', '<h4>' + Utils.escapeHtml(c.name) + '</h4><p>الهاتف: ' + Utils.escapeHtml(c.phone || '-') + '</p><p>الرصيد الحالي: <strong class="text-danger">' + Utils.formatMoney(c.balance) + '</strong></p><table class="mt-20"><thead><tr><th>التاريخ</th><th>النوع</th><th>الوصف</th><th>المبلغ</th></tr></thead><tbody>' + (txns || '<tr><td colspan="4" class="text-center">لا توجد عمليات</td></tr>') + '</tbody></table>', '<button class="btn btn-primary" onclick="window.print()"><i class="fas fa-print"></i> طباعة</button>');
+  }
+};
+
+// ===== الموردون =====
+const SuppliersUI = {
+  render() {
+    const suppliers = Suppliers.getAll();
+    let html = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-truck"></i> الموردون (' + suppliers.length + ')</div><button class="btn btn-primary" onclick="SuppliersUI.showForm()"><i class="fas fa-plus"></i> إضافة مورد</button></div>';
+    if (suppliers.length === 0) html += '<div class="empty-state"><i class="fas fa-truck"></i><p>لا يوجد موردون</p></div>';
+    else {
+      html += '<div class="table-container"><table><thead><tr><th>الاسم</th><th>الهاتف</th><th>إجمالي المشتريات</th><th>المدفوع</th><th>المستحق</th><th>إجراءات</th></tr></thead><tbody>';
+      suppliers.forEach(s => { html += '<tr><td><strong>' + Utils.escapeHtml(s.name) + '</strong></td><td>' + Utils.escapeHtml(s.phone || '-') + '</td><td>' + Utils.formatMoney(s.totalPurchases) + '</td><td>' + Utils.formatMoney(s.totalPaid) + '</td><td class="text-danger"><strong>' + Utils.formatMoney(s.balance) + '</strong></td><td><button class="btn btn-sm btn-primary btn-icon-action" onclick="SuppliersUI.showForm(\'' + s.id + '\')"><i class="fas fa-edit"></i></button> <button class="btn btn-sm btn-success btn-icon-action" onclick="SuppliersUI.pay(\'' + s.id + '\')"><i class="fas fa-money-bill"></i></button> <button class="btn btn-sm btn-danger btn-icon-action" onclick="Suppliers.delete(\'' + s.id + '\');SuppliersUI.render();"><i class="fas fa-trash"></i></button></td></tr>'; });
+      html += '</tbody></table></div>';
+    }
+    html += '</div>'; document.getElementById('pageContent').innerHTML = html;
+  },
+  showForm(id) {
+    id = id || null; const s = id ? Suppliers.getById(id) : null;
+    Modal.open(s ? 'تعديل مورد' : 'إضافة مورد',
+      '<form id="supplierForm"><div class="form-group"><label>الاسم *</label><input type="text" name="name" class="form-control" required value="' + (s ? Utils.escapeHtml(s.name) : '') + '"></div><div class="form-group"><label>الهاتف</label><input type="text" name="phone" class="form-control" value="' + (s ? Utils.escapeHtml(s.phone) : '') + '"></div><div class="form-group"><label>العنوان</label><input type="text" name="address" class="form-control" value="' + (s ? Utils.escapeHtml(s.address) : '') + '"></div><div class="form-group"><label>ملاحظات</label><textarea name="notes" class="form-control">' + (s ? Utils.escapeHtml(s.notes) : '') + '</textarea></div></form>',
+      '<button class="btn btn-primary" onclick="SuppliersUI.save(\'' + (id || '') + '\')">' + (s ? 'تحديث' : 'إضافة') + '</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+  },
+  save(id) {
+    const data = Object.fromEntries(new FormData(document.getElementById('supplierForm')));
+    if (!data.name) { Utils.toast('الاسم مطلوب', 'error'); return; }
+    if (id) { Suppliers.update(id, data); Utils.toast('تم التحديث', 'success'); } else { Suppliers.add(data); Utils.toast('تمت الإضافة', 'success'); }
+    Modal.close(); this.render();
+  },
+  pay(id) {
+    const s = Suppliers.getById(id);
+    if (!s || s.balance <= 0) { Utils.toast('لا يوجد مستحق', 'warning'); return; }
+    Modal.open('دفعة للمورد',
+      '<p>المورد: <strong>' + Utils.escapeHtml(s.name) + '</strong></p><p>المستحق: <strong class="text-danger">' + Utils.formatMoney(s.balance) + '</strong></p><div class="form-group mt-20"><label>مبلغ الدفعة</label><input type="number" id="payAmount" class="form-control" min="0" max="' + s.balance + '" step="0.01"></div><div class="form-group"><label>ملاحظات</label><input type="text" id="payNotes" class="form-control"></div>',
+      '<button class="btn btn-success" onclick="SuppliersUI.doPay(\'' + id + '\')"><i class="fas fa-check"></i> دفع</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+  },
+  doPay(id) {
+    const res = Suppliers.paySupplier(id, parseFloat(document.getElementById('payAmount').value), document.getElementById('payNotes').value);
+    if (res.ok) { Utils.toast('تم الدفع', 'success'); Modal.close(); this.render(); } else Utils.toast(res.msg, 'error');
+  }
+};
+
+// ===== المصروفات =====
+const ExpensesUI = {
+  render() {
+    const expenses = Expenses.getAll(); const total = Expenses.getTotal(); const byCat = Expenses.getByCategory();
+    let html = '<div class="stats-grid"><div class="stat-card red"><div class="stat-label">إجمالي المصروفات</div><div class="stat-value">' + Utils.formatMoney(total) + '</div></div><div class="stat-card"><div class="stat-label">عدد العمليات</div><div class="stat-value">' + expenses.length + '</div></div></div>';
+    html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-receipt"></i> المصروفات</div><button class="btn btn-primary" onclick="ExpensesUI.showForm()"><i class="fas fa-plus"></i> إضافة مصروف</button></div>';
+    if (expenses.length === 0) html += '<div class="empty-state"><i class="fas fa-receipt"></i><p>لا توجد مصروفات</p></div>';
+    else {
+      html += '<div class="table-container"><table><thead><tr><th>التاريخ</th><th>الفئة</th><th>المبلغ</th><th>الوصف</th><th>طريقة الدفع</th><th>إجراءات</th></tr></thead><tbody>';
+      expenses.forEach(e => { html += '<tr><td>' + Utils.formatDate(e.date) + '</td><td><span class="badge badge-info">' + Utils.escapeHtml(e.category) + '</span></td><td><strong>' + Utils.formatMoney(e.amount) + '</strong></td><td>' + Utils.escapeHtml(e.description || '-') + '</td><td>' + e.paymentMethod + '</td><td><button class="btn btn-sm btn-danger btn-icon-action" onclick="Expenses.delete(\'' + e.id + '\');ExpensesUI.render();"><i class="fas fa-trash"></i></button></td></tr>'; });
+      html += '</tbody></table></div>';
+    }
+    html += '</div>';
+    if (Object.keys(byCat).length > 0) {
+      const max = Math.max(...Object.values(byCat));
+      html += '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-chart-pie"></i> توزيع المصروفات</div></div><div class="bar-chart">' + Object.entries(byCat).map(([cat, amount]) => '<div class="bar" style="height:' + ((amount / max) * 100) + '%;"><div class="bar-value">' + Utils.formatNumber(amount) + '</div><div class="bar-label">' + cat + '</div></div>').join('') + '</div></div>';
+    }
+    document.getElementById('pageContent').innerHTML = html;
+  },
+  showForm() {
+    const cats = DB.data.expenseCategories.map(c => '<option value="' + c + '">' + c + '</option>').join('');
+    Modal.open('إضافة مصروف',
+      '<form id="expenseForm"><div class="form-row"><div class="form-group"><label>التاريخ</label><input type="date" name="date" class="form-control" value="' + Utils.today() + '"></div><div class="form-group"><label>الفئة *</label><select name="category" class="form-control" required>' + cats + '</select></div></div><div class="form-row"><div class="form-group"><label>المبلغ *</label><input type="number" name="amount" class="form-control" required min="0" step="0.01"></div><div class="form-group"><label>طريقة الدفع</label><select name="paymentMethod" class="form-control"><option value="نقد">نقد</option><option value="تحويل">تحويل</option><option value="بطاقة">بطاقة</option></select></div></div><div class="form-group"><label>الوصف</label><textarea name="description" class="form-control"></textarea></div></form>',
+      '<button class="btn btn-primary" onclick="ExpensesUI.save()"><i class="fas fa-save"></i> حفظ</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+  },
+  save() {
+    const data = Object.fromEntries(new FormData(document.getElementById('expenseForm')));
+    if (!data.category || !data.amount) { Utils.toast('أكمل الحقول', 'error'); return; }
+    Expenses.add(data); Utils.toast('تمت الإضافة', 'success'); Modal.close(); this.render();
+  }
+};
+
+// ===== رأس المال =====
+const CapitalUI = {
+  render() {
+    const initial = Capital.getInitialVariable() + Capital.getFixed();
+    const calculated = Capital.getCalculatedCapital();
+    const cash = Capital.getCash(); const inventory = Products.getInventoryValue();
+    const receivables = Customers.getTotalDebts(); const payables = Suppliers.getTotalDebts();
+    const assets = Capital.getAssets(); const liabilities = Capital.getLiabilities();
+    const renderList = list => list.length === 0 ? '<p class="text-muted">لا توجد عمليات</p>' : '<div class="table-container"><table><thead><tr><th>التاريخ</th><th>المبلغ</th><th>ملاحظات</th></tr></thead><tbody>' + list.map(x => '<tr><td>' + Utils.formatDate(x.date) + '</td><td><strong>' + Utils.formatMoney(x.amount) + '</strong></td><td>' + Utils.escapeHtml(x.notes || '-') + '</td></tr>').join('') + '</tbody></table></div>';
+
+    const html = '<div class="stats-grid"><div class="stat-card gold"><div class="stat-label">رأس المال الابتدائي</div><div class="stat-value">' + Utils.formatMoney(initial) + '</div><small>متغير: ' + Utils.formatMoney(Capital.getInitialVariable()) + ' | ثابت: ' + Utils.formatMoney(Capital.getFixed()) + '</small></div><div class="stat-card ' + (calculated >= initial ? 'green' : 'red') + '"><div class="stat-label">رأس المال الحالي (محسوب)</div><div class="stat-value">' + Utils.formatMoney(calculated) + '</div><small>أصول - التزامات</small></div><div class="stat-card green"><div class="stat-label">النقد</div><div class="stat-value">' + Utils.formatMoney(cash) + '</div></div><div class="stat-card"><div class="stat-label">المخزون</div><div class="stat-value">' + Utils.formatMoney(inventory) + '</div></div></div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-balance-scale"></i> المعادلة المحاسبية</div></div><div class="stats-grid"><div class="stat-card green"><div class="stat-label">الأصول</div><div class="stat-value">' + Utils.formatMoney(assets) + '</div><small>نقد + مخزون + ديون عملاء + ثابت</small></div><div class="stat-card red"><div class="stat-label">الالتزامات</div><div class="stat-value">' + Utils.formatMoney(liabilities) + '</div><small>ديون الموردين</small></div><div class="stat-card gold"><div class="stat-label">رأس المال (أصول - التزامات)</div><div class="stat-value">' + Utils.formatMoney(assets - liabilities) + '</div></div></div></div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-cog"></i> تحديث رأس المال الابتدائي</div></div><div class="form-row"><div class="form-group"><label>رأس المال المتغير</label><input type="number" id="capVariable" class="form-control" value="' + Capital.getInitialVariable() + '"></div><div class="form-group"><label>رأس المال الثابت</label><input type="number" id="capFixed" class="form-control" value="' + Capital.getFixed() + '"></div></div><button class="btn btn-primary" onclick="CapitalUI.updateInitial()"><i class="fas fa-save"></i> حفظ</button></div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-plus-circle"></i> رأس مال إضافي</div><button class="btn btn-sm btn-success" onclick="CapitalUI.addModal(\'additional\')"><i class="fas fa-plus"></i> إضافة</button></div>' + renderList(DB.data.capital.additionalCapital) + '</div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-minus-circle"></i> السحوبات الشخصية</div><button class="btn btn-sm btn-warning" onclick="CapitalUI.addModal(\'withdrawal\')"><i class="fas fa-plus"></i> إضافة</button></div>' + renderList(DB.data.capital.withdrawals) + '</div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-redo"></i> الأرباح المعاد استثمارها</div><button class="btn btn-sm btn-gold" onclick="CapitalUI.addModal(\'reinvested\')"><i class="fas fa-plus"></i> إضافة</button></div>' + renderList(DB.data.capital.reinvested) + '</div>';
+    document.getElementById('pageContent').innerHTML = html;
+  },
+  updateInitial() { Capital.updateInitial(parseFloat(document.getElementById('capVariable').value), parseFloat(document.getElementById('capFixed').value)); Utils.toast('تم التحديث', 'success'); this.render(); },
+  addModal(type) {
+    const titles = { additional: 'رأس مال إضافي', withdrawal: 'سحب شخصي', reinvested: 'أرباح معاد استثمارها' };
+    const colors = { additional: 'btn-success', withdrawal: 'btn-warning', reinvested: 'btn-gold' };
+    Modal.open(titles[type],
+      '<div class="form-group"><label>المبلغ *</label><input type="number" id="addAmount" class="form-control" min="0" step="0.01"></div><div class="form-group"><label>ملاحظات</label><input type="text" id="addNotes" class="form-control"></div>',
+      '<button class="btn ' + colors[type] + '" onclick="CapitalUI.doAdd(\'' + type + '\')">إضافة</button> <button class="btn btn-outline" style="color:var(--gray-700);border-color:var(--gray-300);" onclick="Modal.close()">إلغاء</button>');
+  },
+  doAdd(type) {
+    const amount = parseFloat(document.getElementById('addAmount').value);
+    const notes = document.getElementById('addNotes').value;
+    if (!amount || amount <= 0) { Utils.toast('أدخل مبلغاً صحيحاً', 'error'); return; }
+    if (type === 'additional') Capital.addAdditional(amount, notes);
+    else if (type === 'withdrawal') Capital.addWithdrawal(amount, notes);
+    else Capital.addReinvested(amount, notes);
+    Utils.toast('تمت الإضافة', 'success'); Modal.close(); this.render();
+  }
+};
+
+// ===== الأرباح =====
+const ProfitsUI = {
+  render() {
+    const sales = Sales.getTotalSales(); const cogs = Sales.getTotalCogs(); const gross = sales - cogs;
+    const expenses = Expenses.getTotal(); const net = gross - expenses;
+    const withdrawals = Capital.getTotalWithdrawals(); const reinvested = Capital.getTotalReinvested();
+    const available = net - withdrawals;
+    document.getElementById('pageContent').innerHTML = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-chart-pie"></i> تحليل الأرباح</div></div><div class="stats-grid">' +
+      '<div class="stat-card"><div class="stat-label">المبيعات</div><div class="stat-value">' + Utils.formatMoney(sales) + '</div></div>' +
+      '<div class="stat-card"><div class="stat-label">تكلفة البضاعة المباعة</div><div class="stat-value">' + Utils.formatMoney(cogs) + '</div></div>' +
+      '<div class="stat-card green"><div class="stat-label">إجمالي الربح</div><div class="stat-value">' + Utils.formatMoney(gross) + '</div><small>هامش: ' + (sales > 0 ? (gross/sales*100).toFixed(2) : 0) + '%</small></div>' +
+      '<div class="stat-card red"><div class="stat-label">المصروفات التشغيلية</div><div class="stat-value">' + Utils.formatMoney(expenses) + '</div></div>' +
+      '<div class="stat-card ' + (net >= 0 ? 'green' : 'red') + '"><div class="stat-label">صافي الربح</div><div class="stat-value">' + Utils.formatMoney(net) + '</div><small>هامش: ' + (sales > 0 ? (net/sales*100).toFixed(2) : 0) + '%</small></div>' +
+      '<div class="stat-card orange"><div class="stat-label">السحوبات الشخصية</div><div class="stat-value">' + Utils.formatMoney(withdrawals) + '</div></div>' +
+      '<div class="stat-card gold"><div class="stat-label">أرباح معاد استثمارها</div><div class="stat-value">' + Utils.formatMoney(reinvested) + '</div></div>' +
+      '<div class="stat-card ' + (available >= 0 ? 'green' : 'red') + '"><div class="stat-label">الأرباح المتاحة</div><div class="stat-value">' + Utils.formatMoney(available) + '</div></div></div>' +
+      '<div class="alert alert-info mt-20"><i class="fas fa-info-circle"></i> <strong>ملاحظة محاسبية:</strong> صافي الربح = إجمالي الربح - المصروفات التشغيلية. لا يُحتسب ضمن الربح: رأس المال، قيمة المخزون، ديون العملاء.</div></div>';
+  }
+};
+
+// ===== التدفق النقدي =====
+const CashflowUI = {
+  render() {
+    const cash = Capital.getCash();
+    const cashIn = Sales.getAll().filter(s => s.paymentMethod === 'نقد').reduce((s, x) => s + x.paid, 0);
+    const collections = DB.data.customers.reduce((s, c) => s + c.totalPaid, 0);
+    const purchasesPaid = DB.data.purchases.reduce((s, p) => s + p.paid, 0);
+    const suppliersPaid = DB.data.suppliers.reduce((s, su) => s + su.totalPaid, 0);
+    const expenses = Expenses.getTotal(); const withdrawals = Capital.getTotalWithdrawals();
+    const additionalCapital = Capital.getTotalAdditional();
+    const totalIn = Capital.getInitialVariable() + additionalCapital + cashIn + collections;
+    const totalOut = purchasesPaid + suppliersPaid + expenses + withdrawals;
+    document.getElementById('pageContent').innerHTML = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-money-bill-wave"></i> التدفق النقدي</div></div><div class="stats-grid"><div class="stat-card green"><div class="stat-label">💰 النقد الحالي</div><div class="stat-value">' + Utils.formatMoney(cash) + '</div></div></div>' +
+      '<h4 style="color:var(--green);margin:20px 0 10px;">📥 التدفقات الداخلة</h4><table><tbody>' +
+      '<tr><td>رأس المال الابتدائي + إضافي</td><td class="text-success">' + Utils.formatMoney(Capital.getInitialVariable() + additionalCapital) + '</td></tr>' +
+      '<tr><td>مبيعات نقدية</td><td class="text-success">' + Utils.formatMoney(cashIn) + '</td></tr>' +
+      '<tr><td>تحصيلات من العملاء</td><td class="text-success">' + Utils.formatMoney(collections) + '</td></tr>' +
+      '<tr style="font-weight:700;background:var(--green-light);"><td>الإجمالي الداخل</td><td class="text-success">' + Utils.formatMoney(totalIn) + '</td></tr></tbody></table>' +
+      '<h4 style="color:var(--red);margin:20px 0 10px;">📤 التدفقات الخارجة</h4><table><tbody>' +
+      '<tr><td>مدفوعات المشتريات</td><td class="text-danger">' + Utils.formatMoney(purchasesPaid) + '</td></tr>' +
+      '<tr><td>دفعات الموردين</td><td class="text-danger">' + Utils.formatMoney(suppliersPaid) + '</td></tr>' +
+      '<tr><td>المصروفات</td><td class="text-danger">' + Utils.formatMoney(expenses) + '</td></tr>' +
+      '<tr><td>السحوبات الشخصية</td><td class="text-danger">' + Utils.formatMoney(withdrawals) + '</td></tr>' +
+      '<tr style="font-weight:700;background:var(--red-light);"><td>الإجمالي الخارج</td><td class="text-danger">' + Utils.formatMoney(totalOut) + '</td></tr></tbody></table></div>';
+  }
+};
+
+// ===== المحلل الذكي =====
+const AIUI = {
+  render() {
+    const answers = AI.analyze(); const metrics = AI.getMetrics();
+    document.getElementById('pageContent').innerHTML = '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-brain"></i> المحلل المالي الذكي — AI FINANCIAL ANALYST</div></div><div class="alert alert-info"><i class="fas fa-robot"></i> تحليل مبني بالكامل على بياناتك المسجلة في النظام.</div>' +
+      answers.map(a => '<div class="ai-answer"><h4>' + a.title + '</h4><p>' + a.text + '</p></div>').join('') + '</div>' +
+      '<div class="card"><div class="card-header"><div class="card-title"><i class="fas fa-tachometer-alt"></i> المؤشرات المالية التفصيلية</div></div><table><thead><tr><th>المؤشر</th><th>القيمة</th><th>الشرح</th></tr></thead><tbody>' +
+      '<tr><td><strong>معدل دوران المخزون</strong></td><td>' + metrics.inventoryTurnover.toFixed(2) + '</td><td>كم مرة يُباع المخزون ويُستبدل خلال السنة. كلما ارتفع، كان أفضل.</td></tr>' +
+      '<tr><td><strong>معدل دوران رأس المال</strong></td><td>' + metrics.capitalTurnover.toFixed(2) + '</td><td>كم ريال مبيعات يُنتجها كل ريال رأس مال.</td></tr>' +
+      '<tr><td><strong>هامش الربح الإجمالي</strong></td><td>' + metrics.grossMargin.toFixed(2) + '%</td><td>النسبة المتبقية من المبيعات بعد خصم تكلفة البضاعة.</td></tr>' +
+      '<tr><td><strong>هامش الربح الصافي</strong></td><td>' + metrics.netMargin.toFixed(2) + '%</td><td>النسبة المتبقية بعد جميع المصروفات.</td></tr>' +
+      '<tr><td><strong>العائد على رأس المال (ROC)</strong></td><td>' + metrics.returnOnCapital.toFixed(2) + '%</td><td>كم يُنتج رأس المال من صافي ربح سنوياً.</td></tr>' +
+      '<tr><td><strong>نسبة الذمم المدينة</strong></td><td>' + metrics.receivablesRatio.toFixed(2) + '%</td><td>نسبة الديون من المبيعات. كلما انخفضت، كان التحصيل أفضل.</td></tr>' +
+      '</tbody></table></div>';
+  }
+};
+
+// ===== بدء التطبيق =====
+document.addEventListener('DOMContentLoaded', () => App.init());
+</script>
+</body>
+</html>
